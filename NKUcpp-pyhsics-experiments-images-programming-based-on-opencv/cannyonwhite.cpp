@@ -2,6 +2,8 @@
 //#include<opencv2/highgui.hpp>
 //#include<opencv2/imgproc.hpp>
 //#include<bits/stdc++.h>
+//#include <tesseract/baseapi.h>
+//#include <leptonica/allheaders.h>
 //using namespace std;
 //using namespace cv;
 //
@@ -15,20 +17,10 @@
 //		cvtColor(img, imgHSV, COLOR_BGR2HSV);//HSV
 //		cvtColor(img, imgGrey, COLOR_BGR2GRAY);//灰度图像
 //	}
-//	/*void canny()
-//	{
-//		Mat imgCanny, imgDia, imgBlur;
-//		GaussianBlur(imgGrey, imgBlur, Size(3, 3), 3, 0);//高斯模糊
-//		Canny(imgBlur, imgCanny, 25, 75);//提取边缘
-//		Mat kernel = getStructuringElement(MORPH_RECT, Size(3, 3));
-//		dilate(imgCanny, imgDia, kernel);//扩大
-//		//erode(imgDia, imgErode, kernel);//减少厚度
-//		imshow("imgDia", imgDia);
-//	}*/
 //	Mat edge()
 //	{
 //		Mat se = getStructuringElement(MORPH_RECT, Size(3, 3), Point(-1, -1));
-//		Mat edges,basic_grad;
+//		Mat edges, basic_grad;
 //		morphologyEx(imgGrey, basic_grad, MORPH_GRADIENT, se);
 //		threshold(basic_grad, edges, 0, 255, THRESH_BINARY | THRESH_OTSU);
 //		Mat kernel = getStructuringElement(MORPH_RECT, Size(30, 30));
@@ -84,7 +76,7 @@
 //		//利用HSV清除因为边缘扩大带来的无用像素
 //		return result;
 //	}
-//	
+//
 //	bool cmp_x(Point pt1, Point pt2)
 //	{
 //		// 比较函数，用于排序
@@ -151,7 +143,7 @@
 //		printf("sceneDrawing :: getAngle error!");
 //		return -1;
 //	}
-//	double getRotateAngle() 
+//	double getRotateAngle()
 //	{
 //		Mat imgDisRotate = clearOtherColors();
 //		Mat m_gray, m_bi;
@@ -184,7 +176,7 @@
 //				}
 //			}
 //		}
-//		
+//
 //
 //		Point2f pt_left = get_mid_pt(v_pt[0], v_pt[1]);
 //		Point2f pt_right = get_mid_pt(v_pt[2], v_pt[3]);
@@ -193,17 +185,59 @@
 //		cout << "ang=" << ang << endl;
 //
 //		// 这里可以添加代码来显示或保存处理后的图像，如果需要的话
-//		if (ang > 180||ang<10)
-//		{
-//			return 0;
-//		}
+//		
 //		return -ang; // 返回旋转角度
-//		//还有点问题，这个角度阈值不好确定
 //	}
-//	void rotate()
+//	double getRotateAngle(Mat imgDisRotate)
+//	{
+//		//函数重载，多次生成旋转角度
+//		//cout << "called" << endl;
+//		//imshow("imgDisRotate", imgDisRotate);
+//		Mat m_gray, m_bi;
+//		cvtColor(imgDisRotate, m_gray, COLOR_BGR2GRAY);
+//		threshold(m_gray, m_bi, 100, 255, THRESH_BINARY_INV);
+//
+//		vector<vector<Point>> contours;
+//		vector<Vec4i> hierarchy;
+//		findContours(m_bi, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point());
+//
+//		RotatedRect rt_rot_max, rt_tmp;
+//		int max_size = -1;
+//		for (int i = 0; i < contours.size(); i++) {
+//			rt_tmp = minAreaRect(Mat(contours[i]));
+//			if (rt_tmp.size.area() > max_size) {
+//				max_size = rt_tmp.size.area();
+//				rt_rot_max = rt_tmp;
+//			}
+//		}
+//		vector<Point2f> v_pt(4);
+//		rt_rot_max.points(v_pt.data());
+//
+//		for (int i = 0; i < 4; i++)
+//		{
+//			for (int j = i; j < 4; j++)
+//			{
+//				if (v_pt[i].x > v_pt[j].x)
+//				{
+//					swap(v_pt[i], v_pt[j]);
+//				}
+//			}
+//		}
+//
+//
+//		Point2f pt_left = get_mid_pt(v_pt[0], v_pt[1]);
+//		Point2f pt_right = get_mid_pt(v_pt[2], v_pt[3]);
+//
+//		double ang = get_point_angle(pt_left, pt_right);
+//		cout << "ang=" << ang << endl;
+//
+//		// 这里可以添加代码来显示或保存处理后的图像，如果需要的话
+//		
+//		return -ang; // 返回旋转角度
+//	}
+//	Mat rotate()
 //	{
 //		Mat src = clearOtherColors();
-//	
 //		if (src.empty()) {
 //			std::cout << "Could not open or find the image!" << std::endl;
 //		}
@@ -229,7 +263,106 @@
 //
 //		// 显示图像
 //		imshow("Rotated Image", dst);
+//		
+//		//waitKey(0);
+//		imgAfterRotate = dst;
+//		return dst;
+//	}
+//	Mat rotate(double angle)
+//	{
+//		//函数重载，生成多次旋转后图片
+//		//cout << "called" << endl;
+//		Mat src = clearOtherColors();
+//		if (src.empty()) {
+//			std::cout << "Could not open or find the image!" << std::endl;
+//		}
+//
+//		// 设置旋转中心；在这里我们选择图像的中心
+//		Point2f center(src.cols / 2.0F, src.rows / 2.0F);
+//
+//		// 获取旋转矩阵
+//		
+//		double scale = 1.0;  // 缩放比例
+//		Mat rot = getRotationMatrix2D(center, angle, scale);
+//
+//		// 计算新图像的边界
+//		Rect2f bbox = RotatedRect(Point2f(), src.size(), (float)angle).boundingRect2f();
+//
+//		// 调整旋转矩阵以考虑平移
+//		rot.at<double>(0, 2) += bbox.width / 2.0 - src.cols / 2.0;
+//		rot.at<double>(1, 2) += bbox.height / 2.0 - src.rows / 2.0;
+//
+//		// 应用仿射变换
+//		Mat dst;
+//		warpAffine(src, dst, rot, bbox.size(), INTER_LINEAR, BORDER_CONSTANT, Scalar(255, 255, 255));
+//
+//		// 显示图像
+//		imshow("Rotated Image", dst);
+//
+//		//waitKey(0);
+//		imgAfterRotate = dst;
+//		return dst;
+//	}
+//	void eraseText()
+//	{
+//		Mat image = imgAfterRotate;
+//		if (image.empty()) {
+//			cout << "Could not open or find the image" << endl;
+//		}
+//
+//		// Convert image to grayscale
+//		Mat gray;
+//		cvtColor(image, gray, COLOR_BGR2GRAY);
+//
+//		// Initialize Tesseract API
+//		tesseract::TessBaseAPI tess;
+//		if (tess.Init(NULL, "chi_sim", tesseract::OEM_LSTM_ONLY) == -1) {
+//			cerr << "Could not initialize Tesseract." << endl;
+//		}
+//		tess.SetPageSegMode(tesseract::PSM_AUTO);
+//
+//		// Set image data to Tesseract
+//		tess.SetImage(gray.data, gray.cols, gray.rows, 1, gray.step);
+//
+//		// Recognize text
+//		tess.Recognize(0);
+//
+//		// Get ResultIterator
+//		tesseract::ResultIterator* ri = tess.GetIterator();
+//		tesseract::PageIteratorLevel level = tesseract::RIL_WORD;
+//
+//		// Iterate over all recognized words
+//		if (ri != nullptr) {
+//			do {
+//				const char* word = ri->GetUTF8Text(level);
+//				float conf = ri->Confidence(level);
+//				int x1, y1, x2, y2;
+//				ri->BoundingBox(level, &x1, &y1, &x2, &y2);
+//
+//				// Draw rectangle on the image
+//			   // rectangle(image, Point(x1, y1), Point(x2, y2), Scalar(0, 255, 0), 2);
+//				Rect rect(x1, y1, x2 - x1, y2 - y1);
+//				int area = rect.width * rect.height;
+//				if (area < 1000000)
+//				{
+//					image(rect).setTo(Scalar(255, 255, 255));
+//				}
+//
+//			} while (ri->Next(level));
+//		}
+//
+//		// Display the image
+//		imshow("Text Detection", image);
+//		//imwrite("phyAfterHandle.jpg", image);
 //		waitKey(0);
+//		imgOutput = image;
+//		//imwrite("position.jpg", image);
+//		//waitKey(0); // Wait for a key press to close the window
+//		// Clean up
+//		tess.End();
+//		if (ri != nullptr) {
+//			delete ri;
+//		}
 //	}
 //	void showImage()
 //	{
@@ -239,22 +372,44 @@
 //	{
 //		imshow("imgGrey", imgGrey);
 //	}
-//
+//	Mat getResult()
+//	{
+//		return imgAfterRotate;
+//	}
+//	void showOutputImage()
+//	{
+//		imshow("imgOutput", imgOutput);
+//	}
 //private:
-//	Mat img, imgHSV, imgGrey ;
+//	Mat img, imgHSV, imgGrey,imgAfterRotate,imgOutput;
 //};
 //int main()
 //{
-//	Image img("Resources/Resources/ph2.jpg");
-//	//img.showImage();
-//	//img.showImageGrey();
-//	//img.canny();
-//	//img.edge();
-//	//img.copyToWhite();
-//	//img.clearOtherColors();
-//	//img.rotateAndReturnAngle();
+//	Image img("Resources/Resources/phy.jpg");
+//	img.showImage();
 //	img.rotate();
-//	waitKey(0);
+//	waitKey(1);
+//	string order;
+//	while (true)
+//	{
+//		cout << "图像是否需要重新生成？[Y]/[N]" << endl;
+//		cin >> order;
+//		if (order == "Y")
+//		{
+//			double angle=img.getRotateAngle(img.getResult());
+//			img.rotate(angle);
+//			waitKey(1);
+//		}
+//		else if (order == "N")
+//		{
+//			img.eraseText();
+//			break;
+//		}
+//		else
+//		{
+//			cout << "指令错误" << endl;
+//		}
+//	}
 //	return 0;
 //}
 //

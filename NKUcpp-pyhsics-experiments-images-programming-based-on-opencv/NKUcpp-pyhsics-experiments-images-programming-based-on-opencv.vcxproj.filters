@@ -42,6 +42,12 @@
     <ClCompile Include="returnAngle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="testForOCR.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="returnTextPosition.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="r.jpg">

@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\opencv\build\include;D:\opencv\build\include\opencv2;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\opencv\build\x64\vc15\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\opencv\build\include;D:\opencv\build\include\opencv2;C:\src\vcpkg\packages\tesseract_x64-windows\include;C:\src\vcpkg\packages\tesseract_x64-windows\bin;C:\src\vcpkg\packages\leptonica_x64-windows\include;C:\src\vcpkg\packages\tesseract_x64-windows\share\tessdata;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\opencv\build\x64\vc15\lib;C:\src\vcpkg\packages\tesseract_x64-windows\lib;C:\src\vcpkg\packages\leptonica_x64-windows\lib;C:\src\vcpkg\packages\leptonica_x64-windows\bin;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,7 +112,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_world450d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_world450d.lib;leptonica-1.84.1.lib;tesseract53.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,7 +139,9 @@
     <ClCompile Include="cannyonwhite.cpp" />
     <ClCompile Include="mask2.cpp" />
     <ClCompile Include="returnAngle.cpp" />
+    <ClCompile Include="returnTextPosition.cpp" />
     <ClCompile Include="rotate.cpp" />
+    <ClCompile Include="testForOCR.cpp" />
     <ClCompile Include="tiltCorrection.cpp" />
   </ItemGroup>
   <ItemGroup>
