@@ -15,38 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="imgclass.cpp">
+    <ClCompile Include="run.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="autorotate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="HSVmask.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="cannyonwhite.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="mask2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="clearWord.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="tiltCorrection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="rotate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="returnAngle.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="testForOCR.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="returnTextPosition.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="imageClass.h">
+      <Filter>源文件\头文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

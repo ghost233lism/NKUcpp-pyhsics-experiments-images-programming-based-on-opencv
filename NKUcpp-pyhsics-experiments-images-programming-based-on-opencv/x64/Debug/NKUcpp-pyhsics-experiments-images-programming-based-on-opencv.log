@@ -1,3 +1,47 @@
-﻿  returnTextPosition.cpp
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\returnTextPosition.cpp(32,63): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+﻿  imageClass.h
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(78,57): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(78,34): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(152,31): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(193,31): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(309,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  cannyonwhite.h
+  run.cpp
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(78,57): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(78,34): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(152,31): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(193,31): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+          with
+          [
+              _Tp=float
+          ]
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(309,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码...
   NKUcpp-pyhsics-experiments-images-programming-based-on-opencv.vcxproj -> E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\x64\Debug\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv.exe

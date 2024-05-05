@@ -132,17 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="clearWord.cpp" />
-    <ClCompile Include="HSVmask.cpp" />
-    <ClCompile Include="imgclass.cpp" />
-    <ClCompile Include="autorotate.cpp" />
-    <ClCompile Include="cannyonwhite.cpp" />
-    <ClCompile Include="mask2.cpp" />
-    <ClCompile Include="returnAngle.cpp" />
-    <ClCompile Include="returnTextPosition.cpp" />
-    <ClCompile Include="rotate.cpp" />
-    <ClCompile Include="testForOCR.cpp" />
-    <ClCompile Include="tiltCorrection.cpp" />
+    <ClCompile Include="imageClass.h" />
+    <ClCompile Include="run.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="r.jpg" />
