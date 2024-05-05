@@ -2,7 +2,7 @@
 
 int main()
 {
-	Image img("Resources/Resources/phy.jpg");
+	Image img("Resources/Resources/ph7.jpg");
 	img.showImage();
 	img.rotate();
 	waitKey(1);
@@ -20,6 +20,8 @@ int main()
 		else if (order == "N")
 		{
 			img.eraseText();
+			img.showOutputImage();
+			waitKey(0);
 			break;
 		}
 		else

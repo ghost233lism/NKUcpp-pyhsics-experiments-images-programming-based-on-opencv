@@ -247,7 +247,7 @@ public:
 
 		// 显示图像
 		imshow("Rotated Image", dst);
-
+		waitKey(1);
 		//waitKey(0);
 		imgAfterRotate = dst;
 		return dst;
@@ -256,7 +256,8 @@ public:
 	{
 		//函数重载，生成多次旋转后图片
 		//cout << "called" << endl;
-		Mat src = clearOtherColors();
+		//Mat src = clearOtherColors();
+		Mat src = imgAfterRotate;
 		if (src.empty()) {
 			std::cout << "Could not open or find the image!" << std::endl;
 		}
@@ -281,9 +282,11 @@ public:
 		warpAffine(src, dst, rot, bbox.size(), INTER_LINEAR, BORDER_CONSTANT, Scalar(255, 255, 255));
 
 		// 显示图像
+		//scaleDisplay(dst, 0.5);
+
 		imshow("Rotated Image", dst);
 
-		//waitKey(0);
+		waitKey(10);
 		imgAfterRotate = dst;
 		return dst;
 	}
@@ -315,7 +318,7 @@ public:
 		tesseract::ResultIterator* ri = tess.GetIterator();
 		tesseract::PageIteratorLevel level = tesseract::RIL_WORD;
 
-
+		std::vector<Rect> rectToBeSorted;
 		// Iterate over all recognized words
 		if (ri != nullptr) {
 			do {
@@ -327,19 +330,33 @@ public:
 				// Draw rectangle on the image
 				//rectangle(image, Point(x1, y1), Point(x2, y2), Scalar(0, 255, 0), 2);
 				Rect rect(x1, y1, x2 - x1, y2 - y1);
+				rectToBeSorted.push_back(rect);
 				int area = rect.width * rect.height;
-				if (area < 1000000)
+				/*if (area < 1000000)
 				{
 					image(rect).setTo(Scalar(255, 255, 255));
-				}
+				}*/
 
 			} while (ri->Next(level));
 		}
+		for (int i = 0; i < rectToBeSorted.size(); i++)
+		{
+			for (int j = i; j < rectToBeSorted.size(); j++)
+			{
+				if (rectToBeSorted[i].width * rectToBeSorted[i].height > rectToBeSorted[j].width * rectToBeSorted[j].height)
+				{
+					swap(rectToBeSorted[i], rectToBeSorted[j]);
+				}
+			}
+		}
+		for (int i = 0; i < rectToBeSorted.size() - 1; i++)
+		{
+			rectToBeSorted[i].height += 50;
+			rectToBeSorted[i].width += 50;
+			//rectangle(image, Point(x1, y1), Point(x2, y2), Scalar(0, 255, 0), 2);
+			image(rectToBeSorted[i]).setTo(Scalar(255, 255, 255));
+		}
 
-		// Display the image
-		imshow("Text Detection", image);
-		//imwrite("phyAfterHandle.jpg", image);
-		waitKey(0);
 		imgOutput = image;
 		// Clean up
 		tess.End();
@@ -348,6 +365,7 @@ public:
 			delete ri;
 		}
 	}
+	
 	void showImage()
 	{
 		imshow("img", img);
@@ -363,6 +381,17 @@ public:
 	void showOutputImage()
 	{
 		imshow("imgOutput", imgOutput);
+	}
+	Mat scaleDisplay(Mat imageIn,double scale)
+	{
+
+		// 缩放图像
+		Mat scaledImage;
+		resize(imageIn, scaledImage, Size(), scale, scale);
+		// 显示缩放后的图像
+		imshow("Scaled Image", scaledImage);
+		return scaledImage;
+
 	}
 private:
 	Mat img, imgHSV, imgGrey, imgAfterRotate, imgOutput;
