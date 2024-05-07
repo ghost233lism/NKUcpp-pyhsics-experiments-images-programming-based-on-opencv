@@ -379,6 +379,11 @@ public:
 		// 显示缩放后的图像
 		return scaledImage;
 
+
+	}
+	Mat getImgOutut()
+	{
+		return imgOutput;
 	}
 private:
 	Mat img, imgHSV, imgGrey, imgAfterRotate, imgOutput;

@@ -23,6 +23,24 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
         // 连接按钮的 clicked 信号到槽函数
         connect(buttonGenerate, &QPushButton::clicked, this, &NKUexperimenter::buttonGenerateClicked);
     }
+    QPushButton* buttonRetry = this->findChild<QPushButton*>("buttonRetry");
+    if (buttonRetry)
+    {
+        // 连接按钮的 clicked 信号到槽函数
+        connect(buttonRetry, &QPushButton::clicked, this, &NKUexperimenter::buttonRetryClicked);
+    }
+    QPushButton* buttonErase = this->findChild<QPushButton*>("buttonErase");
+    if (buttonErase)
+    {
+        // 连接按钮的 clicked 信号到槽函数
+        connect(buttonErase, &QPushButton::clicked, this, &NKUexperimenter::buttonEraseClicked);
+    }
+    QPushButton* buttonDownload = this->findChild<QPushButton*>("buttonDownload");
+    if (buttonDownload)
+    {
+        // 连接按钮的 clicked 信号到槽函数
+        connect(buttonDownload, &QPushButton::clicked, this, &NKUexperimenter::buttonDownloadClicked);
+    }
 }
 
 void NKUexperimenter::buttonUploadClicked()
@@ -71,8 +89,6 @@ void NKUexperimenter::buttonGenerateClicked()
         Mat imgEdge = imgToProcess->edge();
         Mat imgRotate = imgToProcess->rotate();
 
-       
-        
         QImage imgEdgeQI = MatToQImage(imgEdge);
         QImage imgRotateQI = MatToQImage(imgRotate);
         if (imgEdgeQI.isNull() || imgRotateQI.isNull())
@@ -138,7 +154,99 @@ void NKUexperimenter::buttonGenerateClicked()
             QMessageBox::warning(this, tr("Warning"), tr("Failed to load image: "));
         }
 }
-QImage NKUexperimenter::MatToQImage(const cv::Mat& mat) {
+void NKUexperimenter::buttonRetryClicked()
+{
+    double angle = imgToProcess->getRotateAngle(imgToProcess->getImgAfterRotate());
+    Mat imgRotate=imgToProcess->rotate(angle);
+    QImage imgRotateQI = MatToQImage(imgRotate);
+    QPixmap imgRotateQP = QPixmap::fromImage(imgRotateQI);
+    if (!imgRotateQP.isNull())
+    {
+        // 找到名为 imgEdge 的 QLabel 控件
+        QLabel* imgRotate = this->findChild<QLabel*>("imgRotate");
+        //QLabel* imgCanny = this->findChild<QLabel*>("imgCanny");
+        if (imgRotate)
+        {
+            // 获取 QLabel 的尺寸
+            QSize labelSize = imgRotate->size();
+
+            // 根据 QLabel 的尺寸缩放图片，保持宽高比
+            QPixmap scaledPixmap = imgRotateQP.scaled(labelSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+            // 设置 QLabel 显示缩放后的图片
+            imgRotate->setPixmap(scaledPixmap);
+
+        }
+        else
+        {
+            QMessageBox::warning(this, tr("Warning"), tr("Failed to find "));
+        }
+
+    }
+    else
+    {
+        QMessageBox::warning(this, tr("Warning"), tr("Failed to load image: "));
+    }
+}
+void NKUexperimenter::buttonEraseClicked()
+{
+    imgToProcess->eraseText();
+    QImage imgEraseQI = MatToQImage(imgToProcess->getImgOutut());
+    QPixmap imgEraseQP = QPixmap::fromImage(imgEraseQI);
+    if (!imgEraseQP.isNull())
+    {
+        // 找到名为 imgEdge 的 QLabel 控件
+        QLabel* imgErase = this->findChild<QLabel*>("imgErase");
+        //QLabel* imgCanny = this->findChild<QLabel*>("imgCanny");
+        if (imgErase)
+        {
+            // 获取 QLabel 的尺寸
+            QSize labelSize = imgErase->size();
+
+            // 根据 QLabel 的尺寸缩放图片，保持宽高比
+            QPixmap scaledPixmap = imgEraseQP.scaled(labelSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+            // 设置 QLabel 显示缩放后的图片
+            imgErase->setPixmap(scaledPixmap);
+
+        }
+        else
+        {
+            QMessageBox::warning(this, tr("Warning"), tr("Failed to find "));
+        }
+
+    }
+    else
+    {
+        QMessageBox::warning(this, tr("Warning"), tr("Failed to load image: "));
+    }
+}
+void NKUexperimenter::buttonDownloadClicked()
+{
+    if (imgErase && !imgErase->pixmap())
+    {
+        QString filter = "PNG File (*.png)";
+        QString path = QFileDialog::getSaveFileName(this, tr("Save Image"), "", tr("%1 (*.*)").arg(filter));
+        if (!path.isEmpty())
+        {
+            // 确保文件名以 .png 结尾
+            if (!path.endsWith(".png", Qt::CaseInsensitive))
+            {
+                path += ".png";
+            }
+
+            QPixmap pixmap = imgErase->pixmap();
+            if (pixmap.save(path)) {
+                QMessageBox::information(this, tr("Success"), tr("Image saved successfully."));
+            }
+            else {
+                QMessageBox::warning(this, tr("Error"), tr("Failed to save image."));
+            }
+        }
+    }
+}
+QImage NKUexperimenter::MatToQImage(const cv::Mat& mat)
+{
     QImage img;
     int chana = mat.channels();
     /// 依据通道数不同，改变不同的装换方式
@@ -183,9 +291,6 @@ QImage NKUexperimenter::MatToQImage(const cv::Mat& mat) {
     img.bits();
     return img;
 }
-
-
-
 void NKUexperimenter::resizeEvent(QResizeEvent* event)
 {
     QMainWindow::resizeEvent(event); // 始终首先调用基类的事件处理函数
@@ -220,6 +325,6 @@ void NKUexperimenter::resizeEvent(QResizeEvent* event)
 }
 NKUexperimenter::~NKUexperimenter()
 {
-    //delete imgToProcess;
+    delete imgToProcess;
     // 销毁对象时的清理工作（如果有的话）
 }

@@ -49,6 +49,8 @@ public:
     QSpacerItem *verticalSpacer_3;
     QPushButton *buttonRetry;
     QSpacerItem *verticalSpacer_4;
+    QPushButton *buttonErase;
+    QSpacerItem *verticalSpacer_5;
     QPushButton *buttonDownload;
     QWidget *widget_2;
     QGridLayout *gridLayout;
@@ -162,6 +164,17 @@ public:
         verticalSpacer_4 = new QSpacerItem(20, 5, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         verticalLayout->addItem(verticalSpacer_4);
+
+        buttonErase = new QPushButton(widget);
+        buttonErase->setObjectName("buttonErase");
+        sizePolicy1.setHeightForWidth(buttonErase->sizePolicy().hasHeightForWidth());
+        buttonErase->setSizePolicy(sizePolicy1);
+
+        verticalLayout->addWidget(buttonErase);
+
+        verticalSpacer_5 = new QSpacerItem(20, 5, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_5);
 
         buttonDownload = new QPushButton(widget);
         buttonDownload->setObjectName("buttonDownload");
@@ -323,6 +336,7 @@ public:
         buttonUpload->setText(QCoreApplication::translate("NKUexperimenterClass", "Upload", nullptr));
         buttonGenerate->setText(QCoreApplication::translate("NKUexperimenterClass", "Generate", nullptr));
         buttonRetry->setText(QCoreApplication::translate("NKUexperimenterClass", "Retry", nullptr));
+        buttonErase->setText(QCoreApplication::translate("NKUexperimenterClass", "Erase", nullptr));
         buttonDownload->setText(QCoreApplication::translate("NKUexperimenterClass", "Download", nullptr));
         imgOriginal->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
         showErase->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));

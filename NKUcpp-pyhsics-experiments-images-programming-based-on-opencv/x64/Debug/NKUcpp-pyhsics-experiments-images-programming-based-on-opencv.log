@@ -1,4 +1,4 @@
-﻿  imageClass.h
+﻿  run.cpp
 E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(78,57): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
           with
           [

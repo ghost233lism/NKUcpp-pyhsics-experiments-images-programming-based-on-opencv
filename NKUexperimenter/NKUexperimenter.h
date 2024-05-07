@@ -23,12 +23,16 @@ public:
 private slots:
    void buttonUploadClicked();
    void buttonGenerateClicked();
+   void buttonRetryClicked();
+   void buttonEraseClicked();
+   void buttonDownloadClicked();
    
 private:
     Ui::NKUexperimenterClass ui;
     QLabel* imgOriginal;
     QLabel* imgEdge;
     QLabel* imgRotate;
+    QLabel* imgErase;
     QString file_path;
     ImageCV* imgToProcess=nullptr;
     //void showImage(QString labelName, QPixmap pixmap);
