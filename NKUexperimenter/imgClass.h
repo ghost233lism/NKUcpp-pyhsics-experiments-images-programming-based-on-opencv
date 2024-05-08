@@ -6,6 +6,7 @@
 #include<string>
 #include <tesseract/baseapi.h>
 #include <leptonica/allheaders.h>
+#include <NKUexperimenter.h>
 
 using namespace cv;
 
@@ -381,10 +382,13 @@ public:
 
 
 	}
-	Mat getImgOutut()
+	Mat getImgOutput()
 	{
 		return imgOutput;
 	}
+	
+	QPixmap imgToSave;
 private:
 	Mat img, imgHSV, imgGrey, imgAfterRotate, imgOutput;
+	
 };

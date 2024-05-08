@@ -41,6 +41,12 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
         // 连接按钮的 clicked 信号到槽函数
         connect(buttonDownload, &QPushButton::clicked, this, &NKUexperimenter::buttonDownloadClicked);
     }
+    QPushButton* buttonNew = this->findChild<QPushButton*>("buttonNew");
+    if (buttonNew)
+    {
+        // 连接按钮的 clicked 信号到槽函数
+        connect(buttonNew, &QPushButton::clicked, this, &NKUexperimenter::buttonNewClicked);
+    }
 }
 
 void NKUexperimenter::buttonUploadClicked()
@@ -187,11 +193,12 @@ void NKUexperimenter::buttonRetryClicked()
     {
         QMessageBox::warning(this, tr("Warning"), tr("Failed to load image: "));
     }
+
 }
 void NKUexperimenter::buttonEraseClicked()
 {
     imgToProcess->eraseText();
-    QImage imgEraseQI = MatToQImage(imgToProcess->getImgOutut());
+    QImage imgEraseQI = MatToQImage(imgToProcess->getImgOutput());
     QPixmap imgEraseQP = QPixmap::fromImage(imgEraseQI);
     if (!imgEraseQP.isNull())
     {
@@ -220,30 +227,43 @@ void NKUexperimenter::buttonEraseClicked()
     {
         QMessageBox::warning(this, tr("Warning"), tr("Failed to load image: "));
     }
+    imgToProcess->imgToSave = imgEraseQP;
 }
 void NKUexperimenter::buttonDownloadClicked()
 {
-    if (imgErase && !imgErase->pixmap())
+   
+    QPixmap myPixmap = imgToProcess->imgToSave;
+    if (!myPixmap.isNull())
     {
-        QString filter = "PNG File (*.png)";
-        QString path = QFileDialog::getSaveFileName(this, tr("Save Image"), "", tr("%1 (*.*)").arg(filter));
-        if (!path.isEmpty())
-        {
-            // 确保文件名以 .png 结尾
-            if (!path.endsWith(".png", Qt::CaseInsensitive))
-            {
-                path += ".png";
-            }
+        QString savePath = QFileDialog::getSaveFileName(nullptr,
+            tr("save"),
+            QDir::homePath(),
+            tr("pic (*.png *.jpg )"));
 
-            QPixmap pixmap = imgErase->pixmap();
-            if (pixmap.save(path)) {
-                QMessageBox::information(this, tr("Success"), tr("Image saved successfully."));
-            }
-            else {
-                QMessageBox::warning(this, tr("Error"), tr("Failed to save image."));
-            }
+        bool saved = myPixmap.save(savePath);
+        if (saved) 
+        {
+            QMessageBox::information(nullptr, tr("save suceesfully"), tr("saved to ") + savePath);
+        }
+        else 
+        {
+            QMessageBox::warning(nullptr, tr("Warning"), tr("fail to save"));
         }
     }
+    else
+    {
+        QMessageBox::warning(this, tr("Warning"), tr("Pixmap null "));
+    }
+        
+}
+void NKUexperimenter::buttonNewClicked() 
+{
+    // 关闭当前窗口
+    this->close();
+
+    // 创建并显示新窗口
+    NKUexperimenter* newWindow = new NKUexperimenter();
+    newWindow->show();
 }
 QImage NKUexperimenter::MatToQImage(const cv::Mat& mat)
 {

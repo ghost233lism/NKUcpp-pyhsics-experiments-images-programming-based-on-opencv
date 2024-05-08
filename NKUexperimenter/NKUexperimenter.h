@@ -26,6 +26,7 @@ private slots:
    void buttonRetryClicked();
    void buttonEraseClicked();
    void buttonDownloadClicked();
+   void buttonNewClicked();
    
 private:
     Ui::NKUexperimenterClass ui;
