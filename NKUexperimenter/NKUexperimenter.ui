@@ -56,6 +56,9 @@
            <verstretch>1</verstretch>
           </sizepolicy>
          </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
          <property name="autoFillBackground">
           <bool>false</bool>
          </property>
@@ -126,6 +129,9 @@
            <verstretch>1</verstretch>
           </sizepolicy>
          </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
     background-color: #F0FAFA; /* 也可以使用其他颜色或十六进制值 */
@@ -157,6 +163,9 @@
            <horstretch>1</horstretch>
            <verstretch>1</verstretch>
           </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
@@ -190,6 +199,9 @@
            <verstretch>1</verstretch>
           </sizepolicy>
          </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
     background-color: #F0FAFA; /* 也可以使用其他颜色或十六进制值 */
@@ -221,6 +233,12 @@
            <horstretch>1</horstretch>
            <verstretch>1</verstretch>
           </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
+         <property name="mouseTracking">
+          <bool>false</bool>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
@@ -286,7 +304,7 @@
        <item row="0" column="1">
         <widget class="QLabel" name="showOriginal">
          <property name="text">
-          <string>TextLabel</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;原始图片&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -319,7 +337,7 @@
        <item row="4" column="1">
         <widget class="QLabel" name="showRotate">
          <property name="text">
-          <string>TextLabel</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;旋转后图片（可点击按钮重新生成）&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -339,7 +357,7 @@
        <item row="0" column="3">
         <widget class="QLabel" name="showCanny">
          <property name="text">
-          <string>TextLabel</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;边缘检测&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -429,7 +447,7 @@
        <item row="4" column="3">
         <widget class="QLabel" name="showErase">
          <property name="text">
-          <string>TextLabel</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;生成结果&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -478,7 +496,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QListWidget" name="listWidget">
+        <widget class="QTreeView" name="treeView">
          <property name="styleSheet">
           <string notr="true">QListWidget
 {

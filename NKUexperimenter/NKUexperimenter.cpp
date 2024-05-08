@@ -117,31 +117,39 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
     imgErase->setPixmap(pixmapLoading4);
     imgErase->setAlignment(Qt::AlignCenter); // 水平和垂直居中对齐图片
 
+
+    //connect(fileTreeView, &QTreeView::doubleClicked, this, &NKUexperimenter::onFileDoubleClicked); // 连接双击信号
+    //fileSystemModel = new QFileSystemModel(this);
+    //fileTreeView->setModel(fileSystemModel);
+    //// 设置显示的根目录
+    //fileSystemModel->setRootPath(QDir::homePath());
+    //fileTreeView->setRootIndex(fileSystemModel->index(QDir::homePath()));
 }
 
 void NKUexperimenter::buttonUploadClicked()
 {
-    file_path = QFileDialog::getOpenFileName(this,
+    filePath = QFileDialog::getOpenFileName(this,
         tr("上传文件"),
         "",
         tr("Image Files (*.png *.jpg )")); // 限制用户只能选择图片文件
     //创建Image对象
     delete imgToProcess;
     try {
-        imgToProcess = new ImageCV(file_path.toStdString());
+        imgToProcess = new ImageCV(filePath.toStdString());
     }
     catch (const std::exception& e) {
         QMessageBox::warning(this, tr("Error"), tr("Failed to create Image object: ") + QString::fromStdString(e.what()));
         return;
     }
-    if (!file_path.isEmpty()) {
+    if (!filePath.isEmpty()) {
         // 使用 QPixmap 加载图片
-        QPixmap pixmap(file_path);
+        QPixmap pixmap(filePath);
         if (!pixmap.isNull()) {
             // 找到名为 imgOriginal 的 QLabel 控件
             QLabel* imgOriginal = this->findChild<QLabel*>("imgOriginal");
             //QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
-            if (imgOriginal) {
+            if (imgOriginal) 
+            {
                 // 获取 QLabel 的尺寸
                 QSize labelSize = imgOriginal->size();
 
@@ -152,10 +160,24 @@ void NKUexperimenter::buttonUploadClicked()
                 imgOriginal->setPixmap(scaledPixmap);
                 
             }
+            //QDir folder = QFileInfo(filePath).dir(); // 获取图片所在的文件夹
+            //QStringList files = folder.entryList(QDir::Files); // 获取文件夹内所有文件的列表
+            //QListWidget *listWidget = this->findChild<QListWidget*>("listWidget");
+            //listWidget->clear();
+            //for (const QString& file : files) 
+            //{
+            //    listWidget->addItem(file); // 将文件添加到 QListWidget
+            //}
+            QFileSystemModel* model = new QFileSystemModel(this);
+            model->setRootPath(QFileInfo(filePath).dir().absolutePath());
+            QTreeView* fileTreeView= this->findChild<QTreeView*>("treeView");
+            fileTreeView->setModel(model);
+            fileTreeView->setRootIndex(model->index(model->rootPath()));
+            fileTreeView->expandAll();
         }
         else 
         {
-            QMessageBox::warning(this, tr("Warning"), tr("Failed to load image: ") + file_path);
+            QMessageBox::warning(this, tr("Warning"), tr("Failed to load image: ") + filePath);
         }
     }
 }
@@ -430,10 +452,10 @@ void NKUexperimenter::resizeEvent(QResizeEvent* event)
     QLabel* imgOriginal = this->findChild<QLabel*>("imgOriginal");
     if (imgOriginal)
     {
-        if (!file_path.isEmpty())
+        if (!filePath.isEmpty())
         {
             // 使用 QPixmap 加载图片
-            QPixmap pixmap(file_path);
+            QPixmap pixmap(filePath);
             // showImage("imgOriginal", pixmap);
             if (!pixmap.isNull())
             {
@@ -481,6 +503,53 @@ void NKUexperimenter::resizeEvent(QResizeEvent* event)
     imgErase->setPixmap(pixmapLoading4);
     imgErase->setAlignment(Qt::AlignCenter); // 水平和垂直居中对齐图片
 }
+//void NKUexperimenter::onFileDoubleClicked(const QModelIndex& index) {
+//    // 检查双击的文件是否是图片格式
+//    QString filePath = fileSystemModel->filePath(index);
+//    QFileInfo fileInfo(filePath);
+//    if (fileInfo.suffix().compare("png", Qt::CaseInsensitive) == 0 ||
+//        fileInfo.suffix().compare("jpg", Qt::CaseInsensitive) == 0 )
+//    {
+//        // TODO: 实现上传逻辑
+//        delete imgToProcess;
+//        try {
+//            imgToProcess = new ImageCV(filePath.toStdString());
+//        }
+//        catch (const std::exception& e) {
+//            QMessageBox::warning(this, tr("Error"), tr("Failed to create Image object: ") + QString::fromStdString(e.what()));
+//            return;
+//        }
+//        if (!filePath.isEmpty()) {
+//            // 使用 QPixmap 加载图片
+//            QPixmap pixmap(filePath);
+//            if (!pixmap.isNull()) {
+//                // 找到名为 imgOriginal 的 QLabel 控件
+//                QLabel* imgOriginal = this->findChild<QLabel*>("imgOriginal");
+//                //QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
+//                if (imgOriginal)
+//                {
+//                    // 获取 QLabel 的尺寸
+//                    QSize labelSize = imgOriginal->size();
+//
+//                    // 根据 QLabel 的尺寸缩放图片，保持宽高比
+//                    QPixmap scaledPixmap = pixmap.scaled(labelSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+//
+//                    // 设置 QLabel 显示缩放后的图片
+//                    imgOriginal->setPixmap(scaledPixmap);
+//
+//                }
+//           
+//            }
+//            else
+//            {
+//                QMessageBox::warning(this, tr("Warning"), tr("Failed to load image: ") + filePath);
+//            }
+//        }
+//    }
+//    else {
+//        QMessageBox::warning(this, tr("Warning"), tr("Please select an image file."));
+//    }
+//}
 NKUexperimenter::~NKUexperimenter()
 {
     delete imgToProcess;

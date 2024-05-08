@@ -14,14 +14,15 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -72,7 +73,7 @@ public:
     QSpacerItem *verticalSpacer_7;
     QWidget *widget_3;
     QVBoxLayout *verticalLayout_2;
-    QListWidget *listWidget;
+    QTreeView *treeView;
     QToolBar *mainToolBar;
     QMenuBar *menuBar;
     QMenu *fileMenu;
@@ -134,6 +135,7 @@ public:
         sizePolicy1.setVerticalStretch(1);
         sizePolicy1.setHeightForWidth(buttonNew->sizePolicy().hasHeightForWidth());
         buttonNew->setSizePolicy(sizePolicy1);
+        buttonNew->setCursor(QCursor(Qt::OpenHandCursor));
         buttonNew->setAutoFillBackground(false);
         buttonNew->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
@@ -166,6 +168,7 @@ public:
         buttonGenerate->setObjectName("buttonGenerate");
         sizePolicy1.setHeightForWidth(buttonGenerate->sizePolicy().hasHeightForWidth());
         buttonGenerate->setSizePolicy(sizePolicy1);
+        buttonGenerate->setCursor(QCursor(Qt::OpenHandCursor));
         buttonGenerate->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
 "	border: 1px solid #F0FAFA; \n"
@@ -181,6 +184,7 @@ public:
         buttonRetry->setObjectName("buttonRetry");
         sizePolicy1.setHeightForWidth(buttonRetry->sizePolicy().hasHeightForWidth());
         buttonRetry->setSizePolicy(sizePolicy1);
+        buttonRetry->setCursor(QCursor(Qt::OpenHandCursor));
         buttonRetry->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
 "	border: 1px solid #F0FAFA; \n"
@@ -196,6 +200,7 @@ public:
         buttonErase->setObjectName("buttonErase");
         sizePolicy1.setHeightForWidth(buttonErase->sizePolicy().hasHeightForWidth());
         buttonErase->setSizePolicy(sizePolicy1);
+        buttonErase->setCursor(QCursor(Qt::OpenHandCursor));
         buttonErase->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
 "	border: 1px solid #F0FAFA; \n"
@@ -211,6 +216,8 @@ public:
         buttonDownload->setObjectName("buttonDownload");
         sizePolicy1.setHeightForWidth(buttonDownload->sizePolicy().hasHeightForWidth());
         buttonDownload->setSizePolicy(sizePolicy1);
+        buttonDownload->setCursor(QCursor(Qt::OpenHandCursor));
+        buttonDownload->setMouseTracking(false);
         buttonDownload->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
 "	border: 1px solid #F0FAFA; \n"
@@ -347,14 +354,14 @@ public:
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName("verticalLayout_2");
-        listWidget = new QListWidget(widget_3);
-        listWidget->setObjectName("listWidget");
-        listWidget->setStyleSheet(QString::fromUtf8("QListWidget\n"
+        treeView = new QTreeView(widget_3);
+        treeView->setObjectName("treeView");
+        treeView->setStyleSheet(QString::fromUtf8("QListWidget\n"
 "{\n"
 "	background-color: white;\n"
 "}"));
 
-        verticalLayout_2->addWidget(listWidget);
+        verticalLayout_2->addWidget(treeView);
 
 
         horizontalLayout->addWidget(widget_3);
@@ -410,13 +417,13 @@ public:
         buttonErase->setText(QString());
         buttonDownload->setText(QString());
         imgOriginal->setText(QString());
-        showOriginal->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
-        showRotate->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
-        showCanny->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
+        showOriginal->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\345\216\237\345\247\213\345\233\276\347\211\207</p></body></html>", nullptr));
+        showRotate->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\346\227\213\350\275\254\345\220\216\345\233\276\347\211\207\357\274\210\345\217\257\347\202\271\345\207\273\346\214\211\351\222\256\351\207\215\346\226\260\347\224\237\346\210\220\357\274\211</p></body></html>", nullptr));
+        showCanny->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\350\276\271\347\274\230\346\243\200\346\265\213</p></body></html>", nullptr));
         imgErase->setText(QString());
         imgEdge->setText(QString());
         imgRotate->setText(QString());
-        showErase->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
+        showErase->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\347\224\237\346\210\220\347\273\223\346\236\234</p></body></html>", nullptr));
         fileMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\346\226\207\344\273\266(&F)", nullptr));
         setMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\350\256\276\347\275\256(&S)", nullptr));
         helpMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\345\270\256\345\212\251(&H)", nullptr));

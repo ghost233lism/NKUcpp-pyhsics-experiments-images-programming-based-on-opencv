@@ -8,6 +8,8 @@
 #include <QMessageBox>
 #include <QPixmap>
 #include <QImage>
+#include <QFileSystemModel>
+#include <QTreeView>
 #include "imgClass.h"
 class NKUexperimenter : public QMainWindow
 {
@@ -27,6 +29,7 @@ private slots:
    void buttonEraseClicked();
    void buttonDownloadClicked();
    void buttonNewClicked();
+   //void onFileDoubleClicked(const QModelIndex& index);
    
 private:
     Ui::NKUexperimenterClass ui;
@@ -34,7 +37,9 @@ private:
     QLabel* imgEdge;
     QLabel* imgRotate;
     QLabel* imgErase;
-    QString file_path;
+    QString filePath;
+   // QTreeView* fileTreeView;
+    //QFileSystemModel* fileSystemModel;
     ImageCV* imgToProcess=nullptr;
     //void showImage(QString labelName, QPixmap pixmap);
     QImage MatToQImage(const cv::Mat& mat);
