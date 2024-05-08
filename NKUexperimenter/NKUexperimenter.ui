@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>602</width>
-    <height>424</height>
+    <width>574</width>
+    <height>310</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,6 +18,12 @@
   </property>
   <property name="windowTitle">
    <string>NKUexperimenter</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow
+{
+	background-color: white; 
+}</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="sizePolicy">
@@ -35,6 +41,12 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget
+{
+	background-color: #F0FAFA;
+}</string>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QPushButton" name="buttonNew">
@@ -47,8 +59,14 @@
          <property name="autoFillBackground">
           <bool>false</bool>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #F0FAFA; /* 也可以使用其他颜色或十六进制值 */
+	border: 1px solid #F0FAFA; 
+}</string>
+         </property>
          <property name="text">
-          <string>New</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -73,8 +91,17 @@
            <verstretch>1</verstretch>
           </sizepolicy>
          </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #F0FAFA; /* 也可以使用其他颜色或十六进制值 */
+	border: 1px solid #F0FAFA; 
+}</string>
+         </property>
          <property name="text">
-          <string>Upload</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -99,8 +126,14 @@
            <verstretch>1</verstretch>
           </sizepolicy>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #F0FAFA; /* 也可以使用其他颜色或十六进制值 */
+	border: 1px solid #F0FAFA; 
+}</string>
+         </property>
          <property name="text">
-          <string>Generate</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -125,8 +158,14 @@
            <verstretch>1</verstretch>
           </sizepolicy>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #F0FAFA; /* 也可以使用其他颜色或十六进制值 */
+	border: 1px solid #F0FAFA; 
+}</string>
+         </property>
          <property name="text">
-          <string>Retry</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -151,8 +190,14 @@
            <verstretch>1</verstretch>
           </sizepolicy>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #F0FAFA; /* 也可以使用其他颜色或十六进制值 */
+	border: 1px solid #F0FAFA; 
+}</string>
+         </property>
          <property name="text">
-          <string>Erase</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -177,8 +222,14 @@
            <verstretch>1</verstretch>
           </sizepolicy>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #F0FAFA; /* 也可以使用其他颜色或十六进制值 */
+	border: 1px solid #F0FAFA; 
+}</string>
+         </property>
          <property name="text">
-          <string>Download</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -193,15 +244,21 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget
+{
+	background-color: #E6F5EA;
+}</string>
+      </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="2">
-        <spacer name="horizontalSpacer_2">
+       <item row="3" column="4">
+        <spacer name="horizontalSpacer_6">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>10</width>
+           <width>20</width>
            <height>20</height>
           </size>
          </property>
@@ -215,61 +272,14 @@
            <verstretch>10</verstretch>
           </sizepolicy>
          </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="3">
-        <widget class="QLabel" name="showErase">
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QLabel" name="imgEdge">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-           <horstretch>10</horstretch>
-           <verstretch>10</verstretch>
-          </sizepolicy>
+         <property name="styleSheet">
+          <string notr="true">QLabel
+{
+	background-color: white;
+}</string>
          </property>
          <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLabel" name="imgRotate">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-           <horstretch>10</horstretch>
-           <verstretch>10</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="3">
-        <widget class="QLabel" name="imgErase">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-           <horstretch>10</horstretch>
-           <verstretch>10</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="3">
-        <widget class="QLabel" name="showCanny">
-         <property name="text">
-          <string>TextLabel</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -279,6 +289,19 @@
           <string>TextLabel</string>
          </property>
         </widget>
+       </item>
+       <item row="1" column="4">
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item row="1" column="2">
         <spacer name="horizontalSpacer">
@@ -293,7 +316,7 @@
          </property>
         </spacer>
        </item>
-       <item row="3" column="1">
+       <item row="4" column="1">
         <widget class="QLabel" name="showRotate">
          <property name="text">
           <string>TextLabel</string>
@@ -313,7 +336,14 @@
          </property>
         </spacer>
        </item>
-       <item row="2" column="0">
+       <item row="0" column="3">
+        <widget class="QLabel" name="showCanny">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
         <spacer name="horizontalSpacer_4">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -326,28 +356,105 @@
          </property>
         </spacer>
        </item>
-       <item row="1" column="4">
-        <spacer name="horizontalSpacer_5">
+       <item row="3" column="3">
+        <widget class="QLabel" name="imgErase">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+           <horstretch>10</horstretch>
+           <verstretch>10</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel
+{
+	background-color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="imgEdge">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+           <horstretch>10</horstretch>
+           <verstretch>10</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel
+{
+	background-color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="imgRotate">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+           <horstretch>10</horstretch>
+           <verstretch>10</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel
+{
+	background-color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <spacer name="horizontalSpacer_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
+           <width>10</width>
            <height>20</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="2" column="4">
-        <spacer name="horizontalSpacer_6">
+       <item row="4" column="3">
+        <widget class="QLabel" name="showErase">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <spacer name="verticalSpacer_6">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>20</height>
+           <height>8</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="3">
+        <spacer name="verticalSpacer_7">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>8</height>
           </size>
          </property>
         </spacer>
@@ -363,9 +470,22 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget
+{
+	background-color: #EBF5DC;
+}</string>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QListWidget" name="listWidget"/>
+        <widget class="QListWidget" name="listWidget">
+         <property name="styleSheet">
+          <string notr="true">QListWidget
+{
+	background-color: white;
+}</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -385,7 +505,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>602</width>
+     <width>574</width>
      <height>17</height>
     </rect>
    </property>

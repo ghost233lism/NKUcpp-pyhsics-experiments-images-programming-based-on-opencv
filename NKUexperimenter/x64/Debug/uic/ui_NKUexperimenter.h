@@ -54,20 +54,22 @@ public:
     QPushButton *buttonDownload;
     QWidget *widget_2;
     QGridLayout *gridLayout;
-    QSpacerItem *horizontalSpacer_2;
+    QSpacerItem *horizontalSpacer_6;
     QLabel *imgOriginal;
-    QLabel *showErase;
-    QLabel *imgEdge;
-    QLabel *imgRotate;
-    QLabel *imgErase;
-    QLabel *showCanny;
     QLabel *showOriginal;
+    QSpacerItem *horizontalSpacer_5;
     QSpacerItem *horizontalSpacer;
     QLabel *showRotate;
     QSpacerItem *horizontalSpacer_3;
+    QLabel *showCanny;
     QSpacerItem *horizontalSpacer_4;
-    QSpacerItem *horizontalSpacer_5;
-    QSpacerItem *horizontalSpacer_6;
+    QLabel *imgErase;
+    QLabel *imgEdge;
+    QLabel *imgRotate;
+    QSpacerItem *horizontalSpacer_2;
+    QLabel *showErase;
+    QSpacerItem *verticalSpacer_6;
+    QSpacerItem *verticalSpacer_7;
     QWidget *widget_3;
     QVBoxLayout *verticalLayout_2;
     QListWidget *listWidget;
@@ -81,12 +83,16 @@ public:
     {
         if (NKUexperimenterClass->objectName().isEmpty())
             NKUexperimenterClass->setObjectName("NKUexperimenterClass");
-        NKUexperimenterClass->resize(602, 424);
+        NKUexperimenterClass->resize(574, 310);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(NKUexperimenterClass->sizePolicy().hasHeightForWidth());
         NKUexperimenterClass->setSizePolicy(sizePolicy);
+        NKUexperimenterClass->setStyleSheet(QString::fromUtf8("QMainWindow\n"
+"{\n"
+"	background-color: white; \n"
+"}"));
         newFile = new QAction(NKUexperimenterClass);
         newFile->setObjectName("newFile");
         saveCanny = new QAction(NKUexperimenterClass);
@@ -113,6 +119,10 @@ public:
         widget->setObjectName("widget");
         sizePolicy.setHeightForWidth(widget->sizePolicy().hasHeightForWidth());
         widget->setSizePolicy(sizePolicy);
+        widget->setStyleSheet(QString::fromUtf8("QWidget\n"
+"{\n"
+"	background-color: #F0FAFA;\n"
+"}"));
         verticalLayout = new QVBoxLayout(widget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -125,6 +135,10 @@ public:
         sizePolicy1.setHeightForWidth(buttonNew->sizePolicy().hasHeightForWidth());
         buttonNew->setSizePolicy(sizePolicy1);
         buttonNew->setAutoFillBackground(false);
+        buttonNew->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
+"	border: 1px solid #F0FAFA; \n"
+"}"));
 
         verticalLayout->addWidget(buttonNew);
 
@@ -136,6 +150,11 @@ public:
         buttonUpload->setObjectName("buttonUpload");
         sizePolicy1.setHeightForWidth(buttonUpload->sizePolicy().hasHeightForWidth());
         buttonUpload->setSizePolicy(sizePolicy1);
+        buttonUpload->setCursor(QCursor(Qt::OpenHandCursor));
+        buttonUpload->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
+"	border: 1px solid #F0FAFA; \n"
+"}"));
 
         verticalLayout->addWidget(buttonUpload);
 
@@ -147,6 +166,10 @@ public:
         buttonGenerate->setObjectName("buttonGenerate");
         sizePolicy1.setHeightForWidth(buttonGenerate->sizePolicy().hasHeightForWidth());
         buttonGenerate->setSizePolicy(sizePolicy1);
+        buttonGenerate->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
+"	border: 1px solid #F0FAFA; \n"
+"}"));
 
         verticalLayout->addWidget(buttonGenerate);
 
@@ -158,6 +181,10 @@ public:
         buttonRetry->setObjectName("buttonRetry");
         sizePolicy1.setHeightForWidth(buttonRetry->sizePolicy().hasHeightForWidth());
         buttonRetry->setSizePolicy(sizePolicy1);
+        buttonRetry->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
+"	border: 1px solid #F0FAFA; \n"
+"}"));
 
         verticalLayout->addWidget(buttonRetry);
 
@@ -169,6 +196,10 @@ public:
         buttonErase->setObjectName("buttonErase");
         sizePolicy1.setHeightForWidth(buttonErase->sizePolicy().hasHeightForWidth());
         buttonErase->setSizePolicy(sizePolicy1);
+        buttonErase->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
+"	border: 1px solid #F0FAFA; \n"
+"}"));
 
         verticalLayout->addWidget(buttonErase);
 
@@ -180,6 +211,10 @@ public:
         buttonDownload->setObjectName("buttonDownload");
         sizePolicy1.setHeightForWidth(buttonDownload->sizePolicy().hasHeightForWidth());
         buttonDownload->setSizePolicy(sizePolicy1);
+        buttonDownload->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
+"	border: 1px solid #F0FAFA; \n"
+"}"));
 
         verticalLayout->addWidget(buttonDownload);
 
@@ -190,13 +225,17 @@ public:
         widget_2->setObjectName("widget_2");
         sizePolicy.setHeightForWidth(widget_2->sizePolicy().hasHeightForWidth());
         widget_2->setSizePolicy(sizePolicy);
+        widget_2->setStyleSheet(QString::fromUtf8("QWidget\n"
+"{\n"
+"	background-color: #E6F5EA;\n"
+"}"));
         gridLayout = new QGridLayout(widget_2);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName("gridLayout");
-        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+        horizontalSpacer_6 = new QSpacerItem(20, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_2, 2, 2, 1, 1);
+        gridLayout->addItem(horizontalSpacer_6, 3, 4, 1, 1);
 
         imgOriginal = new QLabel(widget_2);
         imgOriginal->setObjectName("imgOriginal");
@@ -205,44 +244,21 @@ public:
         sizePolicy2.setVerticalStretch(10);
         sizePolicy2.setHeightForWidth(imgOriginal->sizePolicy().hasHeightForWidth());
         imgOriginal->setSizePolicy(sizePolicy2);
+        imgOriginal->setStyleSheet(QString::fromUtf8("QLabel\n"
+"{\n"
+"	background-color: white;\n"
+"}"));
 
         gridLayout->addWidget(imgOriginal, 1, 1, 1, 1);
-
-        showErase = new QLabel(widget_2);
-        showErase->setObjectName("showErase");
-
-        gridLayout->addWidget(showErase, 3, 3, 1, 1);
-
-        imgEdge = new QLabel(widget_2);
-        imgEdge->setObjectName("imgEdge");
-        sizePolicy2.setHeightForWidth(imgEdge->sizePolicy().hasHeightForWidth());
-        imgEdge->setSizePolicy(sizePolicy2);
-
-        gridLayout->addWidget(imgEdge, 1, 3, 1, 1);
-
-        imgRotate = new QLabel(widget_2);
-        imgRotate->setObjectName("imgRotate");
-        sizePolicy2.setHeightForWidth(imgRotate->sizePolicy().hasHeightForWidth());
-        imgRotate->setSizePolicy(sizePolicy2);
-
-        gridLayout->addWidget(imgRotate, 2, 1, 1, 1);
-
-        imgErase = new QLabel(widget_2);
-        imgErase->setObjectName("imgErase");
-        sizePolicy2.setHeightForWidth(imgErase->sizePolicy().hasHeightForWidth());
-        imgErase->setSizePolicy(sizePolicy2);
-
-        gridLayout->addWidget(imgErase, 2, 3, 1, 1);
-
-        showCanny = new QLabel(widget_2);
-        showCanny->setObjectName("showCanny");
-
-        gridLayout->addWidget(showCanny, 0, 3, 1, 1);
 
         showOriginal = new QLabel(widget_2);
         showOriginal->setObjectName("showOriginal");
 
         gridLayout->addWidget(showOriginal, 0, 1, 1, 1);
+
+        horizontalSpacer_5 = new QSpacerItem(20, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_5, 1, 4, 1, 1);
 
         horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
@@ -251,23 +267,70 @@ public:
         showRotate = new QLabel(widget_2);
         showRotate->setObjectName("showRotate");
 
-        gridLayout->addWidget(showRotate, 3, 1, 1, 1);
+        gridLayout->addWidget(showRotate, 4, 1, 1, 1);
 
         horizontalSpacer_3 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         gridLayout->addItem(horizontalSpacer_3, 1, 0, 1, 1);
 
+        showCanny = new QLabel(widget_2);
+        showCanny->setObjectName("showCanny");
+
+        gridLayout->addWidget(showCanny, 0, 3, 1, 1);
+
         horizontalSpacer_4 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_4, 2, 0, 1, 1);
+        gridLayout->addItem(horizontalSpacer_4, 3, 0, 1, 1);
 
-        horizontalSpacer_5 = new QSpacerItem(20, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+        imgErase = new QLabel(widget_2);
+        imgErase->setObjectName("imgErase");
+        sizePolicy2.setHeightForWidth(imgErase->sizePolicy().hasHeightForWidth());
+        imgErase->setSizePolicy(sizePolicy2);
+        imgErase->setStyleSheet(QString::fromUtf8("QLabel\n"
+"{\n"
+"	background-color: white;\n"
+"}"));
 
-        gridLayout->addItem(horizontalSpacer_5, 1, 4, 1, 1);
+        gridLayout->addWidget(imgErase, 3, 3, 1, 1);
 
-        horizontalSpacer_6 = new QSpacerItem(20, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+        imgEdge = new QLabel(widget_2);
+        imgEdge->setObjectName("imgEdge");
+        sizePolicy2.setHeightForWidth(imgEdge->sizePolicy().hasHeightForWidth());
+        imgEdge->setSizePolicy(sizePolicy2);
+        imgEdge->setStyleSheet(QString::fromUtf8("QLabel\n"
+"{\n"
+"	background-color: white;\n"
+"}"));
 
-        gridLayout->addItem(horizontalSpacer_6, 2, 4, 1, 1);
+        gridLayout->addWidget(imgEdge, 1, 3, 1, 1);
+
+        imgRotate = new QLabel(widget_2);
+        imgRotate->setObjectName("imgRotate");
+        sizePolicy2.setHeightForWidth(imgRotate->sizePolicy().hasHeightForWidth());
+        imgRotate->setSizePolicy(sizePolicy2);
+        imgRotate->setStyleSheet(QString::fromUtf8("QLabel\n"
+"{\n"
+"	background-color: white;\n"
+"}"));
+
+        gridLayout->addWidget(imgRotate, 3, 1, 1, 1);
+
+        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_2, 3, 2, 1, 1);
+
+        showErase = new QLabel(widget_2);
+        showErase->setObjectName("showErase");
+
+        gridLayout->addWidget(showErase, 4, 3, 1, 1);
+
+        verticalSpacer_6 = new QSpacerItem(20, 8, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        gridLayout->addItem(verticalSpacer_6, 2, 1, 1, 1);
+
+        verticalSpacer_7 = new QSpacerItem(20, 8, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        gridLayout->addItem(verticalSpacer_7, 2, 3, 1, 1);
 
 
         horizontalLayout->addWidget(widget_2);
@@ -276,12 +339,20 @@ public:
         widget_3->setObjectName("widget_3");
         sizePolicy.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
         widget_3->setSizePolicy(sizePolicy);
+        widget_3->setStyleSheet(QString::fromUtf8("QWidget\n"
+"{\n"
+"	background-color: #EBF5DC;\n"
+"}"));
         verticalLayout_2 = new QVBoxLayout(widget_3);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName("verticalLayout_2");
         listWidget = new QListWidget(widget_3);
         listWidget->setObjectName("listWidget");
+        listWidget->setStyleSheet(QString::fromUtf8("QListWidget\n"
+"{\n"
+"	background-color: white;\n"
+"}"));
 
         verticalLayout_2->addWidget(listWidget);
 
@@ -297,7 +368,7 @@ public:
         NKUexperimenterClass->addToolBar(Qt::ToolBarArea::TopToolBarArea, mainToolBar);
         menuBar = new QMenuBar(NKUexperimenterClass);
         menuBar->setObjectName("menuBar");
-        menuBar->setGeometry(QRect(0, 0, 602, 17));
+        menuBar->setGeometry(QRect(0, 0, 574, 17));
         fileMenu = new QMenu(menuBar);
         fileMenu->setObjectName("fileMenu");
         setMenu = new QMenu(menuBar);
@@ -332,20 +403,20 @@ public:
         helpDocument->setText(QCoreApplication::translate("NKUexperimenterClass", "\345\270\256\345\212\251\346\226\207\346\241\243", nullptr));
         actionForMoreHelp->setText(QCoreApplication::translate("NKUexperimenterClass", "For More Help...", nullptr));
         actionCuda->setText(QCoreApplication::translate("NKUexperimenterClass", "\345\205\263\351\227\255cuda\345\212\240\351\200\237", nullptr));
-        buttonNew->setText(QCoreApplication::translate("NKUexperimenterClass", "New", nullptr));
-        buttonUpload->setText(QCoreApplication::translate("NKUexperimenterClass", "Upload", nullptr));
-        buttonGenerate->setText(QCoreApplication::translate("NKUexperimenterClass", "Generate", nullptr));
-        buttonRetry->setText(QCoreApplication::translate("NKUexperimenterClass", "Retry", nullptr));
-        buttonErase->setText(QCoreApplication::translate("NKUexperimenterClass", "Erase", nullptr));
-        buttonDownload->setText(QCoreApplication::translate("NKUexperimenterClass", "Download", nullptr));
-        imgOriginal->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
-        showErase->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
-        imgEdge->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
-        imgRotate->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
-        imgErase->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
-        showCanny->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
+        buttonNew->setText(QString());
+        buttonUpload->setText(QString());
+        buttonGenerate->setText(QString());
+        buttonRetry->setText(QString());
+        buttonErase->setText(QString());
+        buttonDownload->setText(QString());
+        imgOriginal->setText(QString());
         showOriginal->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
         showRotate->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
+        showCanny->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
+        imgErase->setText(QString());
+        imgEdge->setText(QString());
+        imgRotate->setText(QString());
+        showErase->setText(QCoreApplication::translate("NKUexperimenterClass", "TextLabel", nullptr));
         fileMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\346\226\207\344\273\266(&F)", nullptr));
         setMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\350\256\276\347\275\256(&S)", nullptr));
         helpMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\345\270\256\345\212\251(&H)", nullptr));
