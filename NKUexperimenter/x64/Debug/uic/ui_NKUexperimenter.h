@@ -32,7 +32,7 @@ class Ui_NKUexperimenterClass
 {
 public:
     QAction *newFile;
-    QAction *saveCanny;
+    QAction *saveEdge;
     QAction *saveRotate;
     QAction *saveErase;
     QAction *helpDocument;
@@ -96,8 +96,8 @@ public:
 "}"));
         newFile = new QAction(NKUexperimenterClass);
         newFile->setObjectName("newFile");
-        saveCanny = new QAction(NKUexperimenterClass);
-        saveCanny->setObjectName("saveCanny");
+        saveEdge = new QAction(NKUexperimenterClass);
+        saveEdge->setObjectName("saveEdge");
         saveRotate = new QAction(NKUexperimenterClass);
         saveRotate->setObjectName("saveRotate");
         saveErase = new QAction(NKUexperimenterClass);
@@ -390,7 +390,7 @@ public:
         menuBar->addAction(setMenu->menuAction());
         menuBar->addAction(helpMenu->menuAction());
         fileMenu->addAction(newFile);
-        fileMenu->addAction(saveCanny);
+        fileMenu->addAction(saveEdge);
         fileMenu->addAction(saveRotate);
         fileMenu->addAction(saveErase);
         setMenu->addAction(actionCuda);
@@ -406,7 +406,7 @@ public:
     {
         NKUexperimenterClass->setWindowTitle(QCoreApplication::translate("NKUexperimenterClass", "NKUexperimenter", nullptr));
         newFile->setText(QCoreApplication::translate("NKUexperimenterClass", "\346\226\260\345\273\272(&N)", nullptr));
-        saveCanny->setText(QCoreApplication::translate("NKUexperimenterClass", "\344\277\235\345\255\230\350\276\271\347\274\230\345\233\276", nullptr));
+        saveEdge->setText(QCoreApplication::translate("NKUexperimenterClass", "\344\277\235\345\255\230\350\276\271\347\274\230\345\233\276", nullptr));
         saveRotate->setText(QCoreApplication::translate("NKUexperimenterClass", "\344\277\235\345\255\230\346\227\213\350\275\254\345\233\276", nullptr));
         saveErase->setText(QCoreApplication::translate("NKUexperimenterClass", "\344\277\235\345\255\230\347\273\223\346\236\234", nullptr));
         helpDocument->setText(QCoreApplication::translate("NKUexperimenterClass", "\345\270\256\345\212\251\346\226\207\346\241\243", nullptr));

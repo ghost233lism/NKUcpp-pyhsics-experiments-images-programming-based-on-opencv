@@ -11,6 +11,7 @@
 #include <QFileSystemModel>
 #include <QTreeView>
 #include <QToolTip>
+#include <QKeyEvent>
 #include "imgClass.h"
 class NKUexperimenter : public QMainWindow
 {
@@ -18,8 +19,10 @@ class NKUexperimenter : public QMainWindow
 
 protected:
     void resizeEvent(QResizeEvent* event) override; // 重写 resizeEvent
+    
 public:
     NKUexperimenter(QWidget *parent = nullptr);
+    void keyPressEvent(QKeyEvent* k);
     ~NKUexperimenter();
 
    
@@ -30,6 +33,8 @@ private slots:
    void buttonEraseClicked();
    void buttonDownloadClicked();
    void buttonNewClicked();
+   void onNewFileTriggered();
+   void onSaveEdgeTriggered();
    void onFileDoubleClicked(const QModelIndex& index);
    
 private:

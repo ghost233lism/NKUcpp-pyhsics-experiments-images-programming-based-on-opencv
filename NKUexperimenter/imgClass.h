@@ -18,7 +18,7 @@ public:
 	{
 		img = imread(path);
 		cvtColor(img, imgHSV, COLOR_BGR2HSV);//HSV
-		cvtColor(img, imgGrey, COLOR_BGR2GRAY);//»Ò¶ÈÍ¼Ïñ
+		cvtColor(img, imgGrey, COLOR_BGR2GRAY);//ç°åº¦å›¾åƒ
 	}
 	Mat edge()
 	{
@@ -27,61 +27,62 @@ public:
 		morphologyEx(imgGrey, basic_grad, MORPH_GRADIENT, se);
 		threshold(basic_grad, edges, 0, 255, THRESH_BINARY | THRESH_OTSU);
 		Mat kernel = getStructuringElement(MORPH_RECT, Size(30, 30));
-		dilate(edges, edges, kernel);//À©´ó
+		dilate(edges, edges, kernel);//æ‰©å¤§
 		//imshow("edges", edges);
-		return edges;//¼ì²âÒ»¸öÍ¼ÏñµÄ±ßÔµ²¢ÇÒ½øĞĞÀ©´ó
+		
+		return edges;//æ£€æµ‹ä¸€ä¸ªå›¾åƒçš„è¾¹ç¼˜å¹¶ä¸”è¿›è¡Œæ‰©å¤§
 	}
 	Mat copyToWhite()
 	{
 		//Mat result = Mat::zeros(img.size(), img.type());
 		Mat edges = edge();
-		// Ê¹ÓÃotsu·½·¨½øĞĞãĞÖµ´¦Àí£¬½«±ßÔµ¼ì²â½á¹û×ª»»Îª¶şÖµÍ¼Ïñ
+		// ä½¿ç”¨otsuæ–¹æ³•è¿›è¡Œé˜ˆå€¼å¤„ç†ï¼Œå°†è¾¹ç¼˜æ£€æµ‹ç»“æœè½¬æ¢ä¸ºäºŒå€¼å›¾åƒ
 		Mat binaryEdges;
 		threshold(edges, binaryEdges, 0, 255, THRESH_BINARY | THRESH_OTSU);
 		//imshow("binaryEdges", binaryEdges);
-		// ´´½¨Ò»¸öÓëÔ­Í¼³ß´çÏàÍ¬µÄÈ«°×Í¼Ïñ
+		// åˆ›å»ºä¸€ä¸ªä¸åŸå›¾å°ºå¯¸ç›¸åŒçš„å…¨ç™½å›¾åƒ
 		Mat whiteImage(cv::Size(img.size()), CV_8UC3, cv::Scalar(255, 255, 255));
-		img.copyTo(whiteImage, binaryEdges); // ½«±ßÔµÏñËØ¸´ÖÆµ½È«°×Í¼ÏñÉÏ
-		// ÓÉÓÚbinaryEdgesÊÇµ¥Í¨µÀµÄ£¬ÎÒÃÇĞèÒª½«ÆäÀ©Õ¹ÎªÈıÍ¨µÀÒÔÆ¥ÅäÔ­Í¼µÄÍ¨µÀÊı
+		img.copyTo(whiteImage, binaryEdges); // å°†è¾¹ç¼˜åƒç´ å¤åˆ¶åˆ°å…¨ç™½å›¾åƒä¸Š
+		// ç”±äºbinaryEdgesæ˜¯å•é€šé“çš„ï¼Œæˆ‘ä»¬éœ€è¦å°†å…¶æ‰©å±•ä¸ºä¸‰é€šé“ä»¥åŒ¹é…åŸå›¾çš„é€šé“æ•°
 		binaryEdges.convertTo(binaryEdges, CV_8UC3);
-		// Ê¹ÓÃbinaryEdges×÷ÎªÑÚÂë£¬½«Ô­Í¼ÖĞµÄ·Ç±ßÔµÏñËØÉèÖÃÎª°×É«
-		bitwise_and(img, img, whiteImage, binaryEdges); // ±£Áô±ßÔµÏñËØ
-		// ÏÔÊ¾½á¹û
-		return whiteImage;//°ÑÍ¼ÏñÖĞ±ßÔµÒÔÍâµÄÏñËØÈ«²¿±äÎª°×É«
+		// ä½¿ç”¨binaryEdgesä½œä¸ºæ©ç ï¼Œå°†åŸå›¾ä¸­çš„éè¾¹ç¼˜åƒç´ è®¾ç½®ä¸ºç™½è‰²
+		bitwise_and(img, img, whiteImage, binaryEdges); // ä¿ç•™è¾¹ç¼˜åƒç´ 
+		// æ˜¾ç¤ºç»“æœ
+		return whiteImage;//æŠŠå›¾åƒä¸­è¾¹ç¼˜ä»¥å¤–çš„åƒç´ å…¨éƒ¨å˜ä¸ºç™½è‰²
 	}
 	Mat clearOtherColors()
 	{
 		Mat preClearImage = copyToWhite();
-		// ×ª»»µ½HSVÉ«²Ê¿Õ¼ä
+		// è½¬æ¢åˆ°HSVè‰²å½©ç©ºé—´
 		Mat hsv;
 		cvtColor(preClearImage, hsv, COLOR_BGR2HSV);
 
-		// ¶¨ÒåÀ¶É«µÄHSV·¶Î§
+		// å®šä¹‰è“è‰²çš„HSVèŒƒå›´
 		Scalar lower_blue(0, 0, 146);
 		Scalar upper_blue(255, 36, 255);
 
-		// ´´½¨ÑÚÄ£
+		// åˆ›å»ºæ©æ¨¡
 		Mat mask;
 		inRange(hsv, lower_blue, upper_blue, mask);
 
-		// ·´×ªÑÚÄ£
+		// åè½¬æ©æ¨¡
 		Mat mask_inv;
 		bitwise_not(mask, mask_inv);
-		// ´´½¨×îÖÕÏÔÊ¾µÄÍ¼Æ¬
-		Mat result = preClearImage.clone(); // ¸´ÖÆÔ­Í¼µ½½á¹ûÍ¼
-		result.setTo(cv::Scalar(255, 255, 255), mask); // ÔÚÑÚÄ£ÇøÓòÉèÖÃÎª°×É«
-		// ÏÔÊ¾ºÍ±£´æ½á¹û
-		//ÀûÓÃHSVÇå³ıÒòÎª±ßÔµÀ©´ó´øÀ´µÄÎŞÓÃÏñËØ
+		// åˆ›å»ºæœ€ç»ˆæ˜¾ç¤ºçš„å›¾ç‰‡
+		Mat result = preClearImage.clone(); // å¤åˆ¶åŸå›¾åˆ°ç»“æœå›¾
+		result.setTo(cv::Scalar(255, 255, 255), mask); // åœ¨æ©æ¨¡åŒºåŸŸè®¾ç½®ä¸ºç™½è‰²
+		// æ˜¾ç¤ºå’Œä¿å­˜ç»“æœ
+		//åˆ©ç”¨HSVæ¸…é™¤å› ä¸ºè¾¹ç¼˜æ‰©å¤§å¸¦æ¥çš„æ— ç”¨åƒç´ 
 		return result;
 	}
 	Point2f getMiddlePoint(Point2f pt1, Point2f pt2)
 	{
-		// »ñÈ¡Á½µãµÄÖĞµã
+		// è·å–ä¸¤ç‚¹çš„ä¸­ç‚¹
 		return Point2f((pt1.x + pt2.x) / 2.0, (pt1.y + pt2.y) / 2.0);
 	}
 	double getPointAngle(Point2f pointO, Point2f pointA)
 	{
-		//»ñÈ¡µãµÄ½Ç¶È
+		//è·å–ç‚¹çš„è§’åº¦
 		double angle = 0;
 		Point2f point;
 		double temp;
@@ -174,11 +175,11 @@ public:
 		double ang = getPointAngle(ptLeft, ptRight);
 		//std::cout << "ang=" << ang << std::endl;
 
-		return -ang; // ·µ»ØĞı×ª½Ç¶È
+		return -ang; // è¿”å›æ—‹è½¬è§’åº¦
 	}
 	double getRotateAngle(Mat imgDisRotate)
 	{
-		//º¯ÊıÖØÔØ£¬¶à´ÎÉú³ÉĞı×ª½Ç¶È
+		//å‡½æ•°é‡è½½ï¼Œå¤šæ¬¡ç”Ÿæˆæ—‹è½¬è§’åº¦
 		Mat mGray, mBinary;
 		cvtColor(imgDisRotate, mGray, COLOR_BGR2GRAY);
 		threshold(mGray, mBinary, 100, 255, THRESH_BINARY_INV);
@@ -217,9 +218,9 @@ public:
 		double ang = getPointAngle(ptLeft, ptRight);
 		//std::cout << "ang=" << ang << std::endl;
 
-		// ÕâÀï¿ÉÒÔÌí¼Ó´úÂëÀ´ÏÔÊ¾»ò±£´æ´¦ÀíºóµÄÍ¼Ïñ£¬Èç¹ûĞèÒªµÄ»°
+		// è¿™é‡Œå¯ä»¥æ·»åŠ ä»£ç æ¥æ˜¾ç¤ºæˆ–ä¿å­˜å¤„ç†åçš„å›¾åƒï¼Œå¦‚æœéœ€è¦çš„è¯
 
-		return -ang; // ·µ»ØĞı×ª½Ç¶È
+		return -ang; // è¿”å›æ—‹è½¬è§’åº¦
 	}
 	Mat rotate()
 	{
@@ -228,26 +229,26 @@ public:
 			//std::cout << "Could not open or find the image!" << std::endl;
 		}
 
-		// ÉèÖÃĞı×ªÖĞĞÄ£»ÔÚÕâÀïÎÒÃÇÑ¡ÔñÍ¼ÏñµÄÖĞĞÄ
+		// è®¾ç½®æ—‹è½¬ä¸­å¿ƒï¼›åœ¨è¿™é‡Œæˆ‘ä»¬é€‰æ‹©å›¾åƒçš„ä¸­å¿ƒ
 		Point2f center(src.cols / 2.0F, src.rows / 2.0F);
 
-		// »ñÈ¡Ğı×ª¾ØÕó
-		double angle = getRotateAngle(); // Ğı×ª½Ç¶È
-		double scale = 1.0;  // Ëõ·Å±ÈÀı
+		// è·å–æ—‹è½¬çŸ©é˜µ
+		double angle = getRotateAngle(); // æ—‹è½¬è§’åº¦
+		double scale = 1.0;  // ç¼©æ”¾æ¯”ä¾‹
 		Mat rot = getRotationMatrix2D(center, angle, scale);
 
-		// ¼ÆËãĞÂÍ¼ÏñµÄ±ß½ç
+		// è®¡ç®—æ–°å›¾åƒçš„è¾¹ç•Œ
 		Rect2f bbox = RotatedRect(Point2f(), src.size(), (float)angle).boundingRect2f();
 
-		// µ÷ÕûĞı×ª¾ØÕóÒÔ¿¼ÂÇÆ½ÒÆ
+		// è°ƒæ•´æ—‹è½¬çŸ©é˜µä»¥è€ƒè™‘å¹³ç§»
 		rot.at<double>(0, 2) += bbox.width / 2.0 - src.cols / 2.0;
 		rot.at<double>(1, 2) += bbox.height / 2.0 - src.rows / 2.0;
 
-		// Ó¦ÓÃ·ÂÉä±ä»»
+		// åº”ç”¨ä»¿å°„å˜æ¢
 		Mat dst;
 		warpAffine(src, dst, rot, bbox.size(), INTER_LINEAR, BORDER_CONSTANT, Scalar(255, 255, 255));
 
-		// ÏÔÊ¾Í¼Ïñ
+		// æ˜¾ç¤ºå›¾åƒ
 		//imshow("Rotated Image", dst);
 		//waitKey(1);
 		//waitKey(0);
@@ -256,7 +257,7 @@ public:
 	}
 	Mat rotate(double angle)
 	{
-		//º¯ÊıÖØÔØ£¬Éú³É¶à´ÎĞı×ªºóÍ¼Æ¬
+		//å‡½æ•°é‡è½½ï¼Œç”Ÿæˆå¤šæ¬¡æ—‹è½¬åå›¾ç‰‡
 		//cout << "called" << endl;
 		//Mat src = clearOtherColors();
 		Mat src = imgAfterRotate;
@@ -264,26 +265,26 @@ public:
 			//std::cout << "Could not open or find the image!" << std::endl;
 		}
 
-		// ÉèÖÃĞı×ªÖĞĞÄ£»ÔÚÕâÀïÎÒÃÇÑ¡ÔñÍ¼ÏñµÄÖĞĞÄ
+		// è®¾ç½®æ—‹è½¬ä¸­å¿ƒï¼›åœ¨è¿™é‡Œæˆ‘ä»¬é€‰æ‹©å›¾åƒçš„ä¸­å¿ƒ
 		Point2f center(src.cols / 2.0F, src.rows / 2.0F);
 
-		// »ñÈ¡Ğı×ª¾ØÕó
+		// è·å–æ—‹è½¬çŸ©é˜µ
 
-		double scale = 1.0;  // Ëõ·Å±ÈÀı
+		double scale = 1.0;  // ç¼©æ”¾æ¯”ä¾‹
 		Mat rot = getRotationMatrix2D(center, angle, scale);
 
-		// ¼ÆËãĞÂÍ¼ÏñµÄ±ß½ç
+		// è®¡ç®—æ–°å›¾åƒçš„è¾¹ç•Œ
 		Rect2f bbox = RotatedRect(Point2f(), src.size(), (float)angle).boundingRect2f();
 
-		// µ÷ÕûĞı×ª¾ØÕóÒÔ¿¼ÂÇÆ½ÒÆ
+		// è°ƒæ•´æ—‹è½¬çŸ©é˜µä»¥è€ƒè™‘å¹³ç§»
 		rot.at<double>(0, 2) += bbox.width / 2.0 - src.cols / 2.0;
 		rot.at<double>(1, 2) += bbox.height / 2.0 - src.rows / 2.0;
 
-		// Ó¦ÓÃ·ÂÉä±ä»»
+		// åº”ç”¨ä»¿å°„å˜æ¢
 		Mat dst;
 		warpAffine(src, dst, rot, bbox.size(), INTER_LINEAR, BORDER_CONSTANT, Scalar(255, 255, 255));
 
-		// ÏÔÊ¾Í¼Ïñ
+		// æ˜¾ç¤ºå›¾åƒ
 		//scaleDisplay(dst, 0.5);
 
 		//imshow("Rotated Image", dst);
@@ -374,10 +375,10 @@ public:
 	Mat scaleDisplay(Mat imageIn, double scale)
 	{
 
-		// Ëõ·ÅÍ¼Ïñ
+		// ç¼©æ”¾å›¾åƒ
 		Mat scaledImage;
 		resize(imageIn, scaledImage, Size(), scale, scale);
-		// ÏÔÊ¾Ëõ·ÅºóµÄÍ¼Ïñ
+		// æ˜¾ç¤ºç¼©æ”¾åçš„å›¾åƒ
 		return scaledImage;
 
 
@@ -388,7 +389,8 @@ public:
 	}
 	
 	QPixmap imgToSave;
+	QPixmap imgEdgeToShow;
 private:
-	Mat img, imgHSV, imgGrey, imgAfterRotate, imgOutput;
+	Mat img, imgHSV,imgGrey, imgAfterRotate, imgOutput;
 	
 };

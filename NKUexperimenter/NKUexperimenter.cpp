@@ -118,8 +118,11 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
     imgErase->setPixmap(pixmapLoading4);
     imgErase->setAlignment(Qt::AlignCenter); // 水平和垂直居中对齐图片
 
+    QAction* newFile = this->findChild<QAction*>("newFile");
+    connect(newFile, &QAction::triggered, this, &NKUexperimenter::onNewFileTriggered);
 
-    
+    QAction* saveEdge = this->findChild<QAction*>("saveEdge");
+    connect(saveEdge, &QAction::triggered, this, &NKUexperimenter::onSaveEdgeTriggered);
 
     QTreeView* fileTreeView = this->findChild<QTreeView*>("treeView");
     connect(fileTreeView, &QTreeView::doubleClicked, this, &NKUexperimenter::onFileDoubleClicked); // 连接双击信号
@@ -129,9 +132,38 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
     model->setRootPath(QDir::homePath());
     fileTreeView->setRootIndex(model->index(QDir::homePath()));
 
-    this->showMaximized();
+    //this->showMaximized();
 }
+void NKUexperimenter::onNewFileTriggered()
+{
+    NKUexperimenter* newWindow = new NKUexperimenter();
+    newWindow->show();
+}
+void NKUexperimenter::onSaveEdgeTriggered()
+{
+    QPixmap myPixmap = imgToProcess->imgEdgeToShow;
+    if (!myPixmap.isNull())
+    {
+        QString savePath = QFileDialog::getSaveFileName(nullptr,
+            tr(u8"保存结果"),
+            QDir::homePath(),
+            tr("pic (*.png *.jpg )"));
 
+        bool saved = myPixmap.save(savePath);
+        if (saved)
+        {
+            QMessageBox::information(nullptr, tr("save suceesfully"), tr("saved to ") + savePath);
+        }
+        else
+        {
+            QMessageBox::warning(nullptr, tr("Warning"), tr("fail to save"));
+        }
+    }
+    else
+    {
+        QMessageBox::warning(this, tr("Warning"), tr("Pixmap null "));
+    }
+}
 void NKUexperimenter::buttonUploadClicked()
 {
     filePath = QFileDialog::getOpenFileName(this,
@@ -194,6 +226,7 @@ void NKUexperimenter::buttonGenerateClicked()
         
         QPixmap imgEdgeQP = QPixmap::fromImage(imgEdgeQI);
         QPixmap imgRotateQP = QPixmap::fromImage(imgRotateQI);
+        imgToProcess->imgEdgeToShow = imgEdgeQP;
 
         if (!imgEdgeQP.isNull())
         {
@@ -479,7 +512,7 @@ void NKUexperimenter::resizeEvent(QResizeEvent* event)
     QSize buttonSizeForLoading1 = imgOriginal->size(); // 获取按钮的当前大小
     pixmapLoading1 = pixmapLoading1.scaled(buttonSizeForLoading1/2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     imgOriginal->setPixmap(pixmapLoading1);
-
+    
     QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
     QPixmap pixmapLoading2("Icon/loading2.png"); // 原始图片路径
     QSize buttonSizeForLoading2 = imgEdge->size(); // 获取按钮的当前大小
@@ -546,6 +579,14 @@ void NKUexperimenter::onFileDoubleClicked(const QModelIndex& index) {
     }
     else {
         QMessageBox::warning(this, tr("Warning"), tr("Please select an image file."));
+    }
+}
+void NKUexperimenter::keyPressEvent(QKeyEvent* k)
+{
+    if (k->modifiers() == Qt::ControlModifier&&k->key()==Qt::Key_N)
+    {
+        NKUexperimenter* newWindow = new NKUexperimenter();
+        newWindow->show();
     }
 }
 NKUexperimenter::~NKUexperimenter()

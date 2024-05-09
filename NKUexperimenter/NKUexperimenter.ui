@@ -539,7 +539,7 @@
      <string>文件(&amp;F)</string>
     </property>
     <addaction name="newFile"/>
-    <addaction name="saveCanny"/>
+    <addaction name="saveEdge"/>
     <addaction name="saveRotate"/>
     <addaction name="saveErase"/>
    </widget>
@@ -565,7 +565,7 @@
     <string>新建(&amp;N)</string>
    </property>
   </action>
-  <action name="saveCanny">
+  <action name="saveEdge">
    <property name="text">
     <string>保存边缘图</string>
    </property>
