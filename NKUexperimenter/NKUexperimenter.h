@@ -29,7 +29,7 @@ private slots:
    void buttonEraseClicked();
    void buttonDownloadClicked();
    void buttonNewClicked();
-   //void onFileDoubleClicked(const QModelIndex& index);
+   void onFileDoubleClicked(const QModelIndex& index);
    
 private:
     Ui::NKUexperimenterClass ui;
@@ -38,10 +38,9 @@ private:
     QLabel* imgRotate;
     QLabel* imgErase;
     QString filePath;
-   // QTreeView* fileTreeView;
-    //QFileSystemModel* fileSystemModel;
+    QFileSystemModel* model;
     ImageCV* imgToProcess=nullptr;
-    //void showImage(QString labelName, QPixmap pixmap);
+   
     QImage MatToQImage(const cv::Mat& mat);
 
 };

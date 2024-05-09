@@ -240,7 +240,7 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName("gridLayout");
-        horizontalSpacer_6 = new QSpacerItem(20, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+        horizontalSpacer_6 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         gridLayout->addItem(horizontalSpacer_6, 3, 4, 1, 1);
 
@@ -263,7 +263,7 @@ public:
 
         gridLayout->addWidget(showOriginal, 0, 1, 1, 1);
 
-        horizontalSpacer_5 = new QSpacerItem(20, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+        horizontalSpacer_5 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         gridLayout->addItem(horizontalSpacer_5, 1, 4, 1, 1);
 
@@ -368,7 +368,7 @@ public:
 
         horizontalLayout->setStretch(0, 3);
         horizontalLayout->setStretch(1, 15);
-        horizontalLayout->setStretch(2, 4);
+        horizontalLayout->setStretch(2, 5);
         NKUexperimenterClass->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(NKUexperimenterClass);
         mainToolBar->setObjectName("mainToolBar");
