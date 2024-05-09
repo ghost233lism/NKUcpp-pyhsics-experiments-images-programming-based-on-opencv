@@ -10,13 +10,14 @@
 #include <QImage>
 #include <QFileSystemModel>
 #include <QTreeView>
+#include <QToolTip>
 #include "imgClass.h"
 class NKUexperimenter : public QMainWindow
 {
     Q_OBJECT
 
 protected:
-    void resizeEvent(QResizeEvent* event) override; // ÷ÿ–¥ resizeEvent
+    void resizeEvent(QResizeEvent* event) override; // ÈáçÂÜô resizeEvent
 public:
     NKUexperimenter(QWidget *parent = nullptr);
     ~NKUexperimenter();
@@ -38,6 +39,7 @@ private:
     QLabel* imgRotate;
     QLabel* imgErase;
     QString filePath;
+    QPushButton* buttonUpload;
     QFileSystemModel* model;
     ImageCV* imgToProcess=nullptr;
    

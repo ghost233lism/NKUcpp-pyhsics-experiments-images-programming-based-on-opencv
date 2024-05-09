@@ -55,22 +55,22 @@ public:
     QPushButton *buttonDownload;
     QWidget *widget_2;
     QGridLayout *gridLayout;
-    QSpacerItem *horizontalSpacer_6;
-    QLabel *imgOriginal;
-    QLabel *showOriginal;
-    QSpacerItem *horizontalSpacer_5;
-    QSpacerItem *horizontalSpacer;
     QLabel *showRotate;
+    QLabel *imgOriginal;
     QSpacerItem *horizontalSpacer_3;
-    QLabel *showCanny;
-    QSpacerItem *horizontalSpacer_4;
-    QLabel *imgErase;
+    QSpacerItem *horizontalSpacer;
     QLabel *imgEdge;
     QLabel *imgRotate;
+    QLabel *imgErase;
+    QLabel *showOriginal;
+    QSpacerItem *horizontalSpacer_5;
     QSpacerItem *horizontalSpacer_2;
-    QLabel *showErase;
     QSpacerItem *verticalSpacer_6;
+    QSpacerItem *horizontalSpacer_6;
     QSpacerItem *verticalSpacer_7;
+    QLabel *showCanny;
+    QSpacerItem *horizontalSpacer_4;
+    QLabel *showErase;
     QWidget *widget_3;
     QVBoxLayout *verticalLayout_2;
     QTreeView *treeView;
@@ -120,6 +120,7 @@ public:
         widget->setObjectName("widget");
         sizePolicy.setHeightForWidth(widget->sizePolicy().hasHeightForWidth());
         widget->setSizePolicy(sizePolicy);
+        widget->setMaximumSize(QSize(16777215, 16777215));
         widget->setStyleSheet(QString::fromUtf8("QWidget\n"
 "{\n"
 "	background-color: #F0FAFA;\n"
@@ -140,6 +141,7 @@ public:
         buttonNew->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #F0FAFA; /* \344\271\237\345\217\257\344\273\245\344\275\277\347\224\250\345\205\266\344\273\226\351\242\234\350\211\262\346\210\226\345\215\201\345\205\255\350\277\233\345\210\266\345\200\274 */\n"
 "	border: 1px solid #F0FAFA; \n"
+"	\n"
 "}"));
 
         verticalLayout->addWidget(buttonNew);
@@ -240,9 +242,10 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName("gridLayout");
-        horizontalSpacer_6 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+        showRotate = new QLabel(widget_2);
+        showRotate->setObjectName("showRotate");
 
-        gridLayout->addItem(horizontalSpacer_6, 3, 4, 1, 1);
+        gridLayout->addWidget(showRotate, 4, 1, 1, 1);
 
         imgOriginal = new QLabel(widget_2);
         imgOriginal->setObjectName("imgOriginal");
@@ -258,47 +261,13 @@ public:
 
         gridLayout->addWidget(imgOriginal, 1, 1, 1, 1);
 
-        showOriginal = new QLabel(widget_2);
-        showOriginal->setObjectName("showOriginal");
-
-        gridLayout->addWidget(showOriginal, 0, 1, 1, 1);
-
-        horizontalSpacer_5 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_5, 1, 4, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer, 1, 2, 1, 1);
-
-        showRotate = new QLabel(widget_2);
-        showRotate->setObjectName("showRotate");
-
-        gridLayout->addWidget(showRotate, 4, 1, 1, 1);
-
         horizontalSpacer_3 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         gridLayout->addItem(horizontalSpacer_3, 1, 0, 1, 1);
 
-        showCanny = new QLabel(widget_2);
-        showCanny->setObjectName("showCanny");
+        horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
-        gridLayout->addWidget(showCanny, 0, 3, 1, 1);
-
-        horizontalSpacer_4 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_4, 3, 0, 1, 1);
-
-        imgErase = new QLabel(widget_2);
-        imgErase->setObjectName("imgErase");
-        sizePolicy2.setHeightForWidth(imgErase->sizePolicy().hasHeightForWidth());
-        imgErase->setSizePolicy(sizePolicy2);
-        imgErase->setStyleSheet(QString::fromUtf8("QLabel\n"
-"{\n"
-"	background-color: white;\n"
-"}"));
-
-        gridLayout->addWidget(imgErase, 3, 3, 1, 1);
+        gridLayout->addItem(horizontalSpacer, 1, 2, 1, 1);
 
         imgEdge = new QLabel(widget_2);
         imgEdge->setObjectName("imgEdge");
@@ -322,22 +291,55 @@ public:
 
         gridLayout->addWidget(imgRotate, 3, 1, 1, 1);
 
+        imgErase = new QLabel(widget_2);
+        imgErase->setObjectName("imgErase");
+        sizePolicy2.setHeightForWidth(imgErase->sizePolicy().hasHeightForWidth());
+        imgErase->setSizePolicy(sizePolicy2);
+        imgErase->setStyleSheet(QString::fromUtf8("QLabel\n"
+"{\n"
+"	background-color: white;\n"
+"}"));
+
+        gridLayout->addWidget(imgErase, 3, 3, 1, 1);
+
+        showOriginal = new QLabel(widget_2);
+        showOriginal->setObjectName("showOriginal");
+
+        gridLayout->addWidget(showOriginal, 0, 1, 1, 1);
+
+        horizontalSpacer_5 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_5, 1, 4, 1, 1);
+
         horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         gridLayout->addItem(horizontalSpacer_2, 3, 2, 1, 1);
-
-        showErase = new QLabel(widget_2);
-        showErase->setObjectName("showErase");
-
-        gridLayout->addWidget(showErase, 4, 3, 1, 1);
 
         verticalSpacer_6 = new QSpacerItem(20, 8, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         gridLayout->addItem(verticalSpacer_6, 2, 1, 1, 1);
 
+        horizontalSpacer_6 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_6, 3, 4, 1, 1);
+
         verticalSpacer_7 = new QSpacerItem(20, 8, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         gridLayout->addItem(verticalSpacer_7, 2, 3, 1, 1);
+
+        showCanny = new QLabel(widget_2);
+        showCanny->setObjectName("showCanny");
+
+        gridLayout->addWidget(showCanny, 0, 3, 1, 1);
+
+        horizontalSpacer_4 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_4, 3, 0, 1, 1);
+
+        showErase = new QLabel(widget_2);
+        showErase->setObjectName("showErase");
+
+        gridLayout->addWidget(showErase, 4, 3, 1, 1);
 
 
         horizontalLayout->addWidget(widget_2);
@@ -416,13 +418,13 @@ public:
         buttonRetry->setText(QString());
         buttonErase->setText(QString());
         buttonDownload->setText(QString());
-        imgOriginal->setText(QString());
-        showOriginal->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\345\216\237\345\247\213\345\233\276\347\211\207</p></body></html>", nullptr));
         showRotate->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\346\227\213\350\275\254\345\220\216\345\233\276\347\211\207\357\274\210\345\217\257\347\202\271\345\207\273\346\214\211\351\222\256\351\207\215\346\226\260\347\224\237\346\210\220\357\274\211</p></body></html>", nullptr));
-        showCanny->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\350\276\271\347\274\230\346\243\200\346\265\213</p></body></html>", nullptr));
-        imgErase->setText(QString());
+        imgOriginal->setText(QString());
         imgEdge->setText(QString());
         imgRotate->setText(QString());
+        imgErase->setText(QString());
+        showOriginal->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\345\216\237\345\247\213\345\233\276\347\211\207</p></body></html>", nullptr));
+        showCanny->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\350\276\271\347\274\230\346\243\200\346\265\213</p></body></html>", nullptr));
         showErase->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\347\224\237\346\210\220\347\273\223\346\236\234</p></body></html>", nullptr));
         fileMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\346\226\207\344\273\266(&F)", nullptr));
         setMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\350\256\276\347\275\256(&S)", nullptr));

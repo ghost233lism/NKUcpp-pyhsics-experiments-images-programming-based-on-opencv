@@ -6,17 +6,18 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
 {
     ui.setupUi(this);
 
-    // Ê¹ÓÃ findChild À´»ñÈ¡°´Å¥µÄÖ¸Õë
+    // ä½¿ç”¨ findChild æ¥è·å–æŒ‰é’®çš„æŒ‡é’ˆ
     QPushButton* buttonUpload = this->findChild<QPushButton*>("buttonUpload");
-    QPixmap pixmapUp("Icon/upload.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForUp = buttonUpload->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    buttonUpload->setToolTip(u8"ä¸Šä¼ ");
+    QPixmap pixmapUp("Icon/upload.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForUp = buttonUpload->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapUp = pixmapUp.scaled(buttonSizeForUp, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonUpload->setIcon(QIcon(pixmapUp));
-    buttonUpload->setIconSize(buttonSizeForUp); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonUpload->setIconSize(buttonSizeForUp); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     if (buttonUpload)
     {
-        // Á¬½Ó°´Å¥µÄ clicked ĞÅºÅµ½²Ûº¯Êı
+        // è¿æ¥æŒ‰é’®çš„ clicked ä¿¡å·åˆ°æ§½å‡½æ•°
         connect(buttonUpload, &QPushButton::clicked, this, &NKUexperimenter::buttonUploadClicked);
     }
 
@@ -26,114 +27,118 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
     QPushButton* buttonGenerate = this->findChild<QPushButton*>("buttonGenerate");
     if (buttonGenerate)
     {
-        // Á¬½Ó°´Å¥µÄ clicked ĞÅºÅµ½²Ûº¯Êı
+        // è¿æ¥æŒ‰é’®çš„ clicked ä¿¡å·åˆ°æ§½å‡½æ•°
         connect(buttonGenerate, &QPushButton::clicked, this, &NKUexperimenter::buttonGenerateClicked);
     }
 
-    QPixmap pixmapGe("Icon/generate.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForGe = buttonGenerate->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapGe("Icon/generate.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForGe = buttonGenerate->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapGe = pixmapGe.scaled(buttonSizeForGe, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonGenerate->setIcon(QIcon(pixmapGe));
-    buttonGenerate->setIconSize(buttonSizeForGe); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonGenerate->setIconSize(buttonSizeForGe); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     QPushButton* buttonRetry = this->findChild<QPushButton*>("buttonRetry");
     if (buttonRetry)
     {
-        // Á¬½Ó°´Å¥µÄ clicked ĞÅºÅµ½²Ûº¯Êı
+        // è¿æ¥æŒ‰é’®çš„ clicked ä¿¡å·åˆ°æ§½å‡½æ•°
         connect(buttonRetry, &QPushButton::clicked, this, &NKUexperimenter::buttonRetryClicked);
     }
 
-    QPixmap pixmapRe("Icon/retry.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForRe = buttonRetry->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapRe("Icon/retry.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForRe = buttonRetry->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapRe = pixmapRe.scaled(buttonSizeForRe, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonRetry->setIcon(QIcon(pixmapRe));
-    buttonRetry->setIconSize(buttonSizeForRe); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonRetry->setIconSize(buttonSizeForRe); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     QPushButton* buttonErase = this->findChild<QPushButton*>("buttonErase");
     if (buttonErase)
     {
-        // Á¬½Ó°´Å¥µÄ clicked ĞÅºÅµ½²Ûº¯Êı
+        // è¿æ¥æŒ‰é’®çš„ clicked ä¿¡å·åˆ°æ§½å‡½æ•°
         connect(buttonErase, &QPushButton::clicked, this, &NKUexperimenter::buttonEraseClicked);
     }
 
-    QPixmap pixmapEr("Icon/erase.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForEr = buttonErase->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapEr("Icon/erase.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForEr = buttonErase->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapEr = pixmapEr.scaled(buttonSizeForEr, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonErase->setIcon(QIcon(pixmapEr));
-    buttonErase->setIconSize(buttonSizeForEr); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonErase->setIconSize(buttonSizeForEr); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
 
     QPushButton* buttonDownload = this->findChild<QPushButton*>("buttonDownload");
     if (buttonDownload)
     {
-        // Á¬½Ó°´Å¥µÄ clicked ĞÅºÅµ½²Ûº¯Êı
+        // è¿æ¥æŒ‰é’®çš„ clicked ä¿¡å·åˆ°æ§½å‡½æ•°
         connect(buttonDownload, &QPushButton::clicked, this, &NKUexperimenter::buttonDownloadClicked);
     }
 
-    QPixmap pixmapDo("Icon/download.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForDo = buttonDownload->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapDo("Icon/download.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForDo = buttonDownload->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapDo = pixmapDo.scaled(buttonSizeForDo, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonDownload->setIcon(QIcon(pixmapDo));
-    buttonDownload->setIconSize(buttonSizeForDo); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonDownload->setIconSize(buttonSizeForDo); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     QPushButton* buttonNew = this->findChild<QPushButton*>("buttonNew");
     if (buttonNew)
     {
-        // Á¬½Ó°´Å¥µÄ clicked ĞÅºÅµ½²Ûº¯Êı
+        // è¿æ¥æŒ‰é’®çš„ clicked ä¿¡å·åˆ°æ§½å‡½æ•°
         connect(buttonNew, &QPushButton::clicked, this, &NKUexperimenter::buttonNewClicked);
     }
 
-    QPixmap pixmapNe("Icon/new.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForNe = buttonNew->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapNe("Icon/new.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForNe = buttonNew->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapNe = pixmapNe.scaled(buttonSizeForNe, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonNew->setIcon(QIcon(pixmapNe));
-    buttonNew->setIconSize(buttonSizeForNe); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonNew->setIconSize(buttonSizeForNe); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     
-    QPixmap pixmapLoading1("Icon/loading.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForLoading1 = imgOriginal->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapLoading1("Icon/loading.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForLoading1 = imgOriginal->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapLoading1 = pixmapLoading1.scaled(buttonSizeForLoading1/2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     imgOriginal->setPixmap(pixmapLoading1);
-    imgOriginal->setAlignment(Qt::AlignCenter); // Ë®Æ½ºÍ´¹Ö±¾ÓÖĞ¶ÔÆëÍ¼Æ¬
+    imgOriginal->setAlignment(Qt::AlignCenter); // æ°´å¹³å’Œå‚ç›´å±…ä¸­å¯¹é½å›¾ç‰‡
 
     QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
-    QPixmap pixmapLoading2("Icon/loading2.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForLoading2 = imgEdge->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapLoading2("Icon/loading2.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForLoading2 = imgEdge->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapLoading2 = pixmapLoading2.scaled(buttonSizeForLoading2 / 2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     imgEdge->setPixmap(pixmapLoading2);
-    imgEdge->setAlignment(Qt::AlignCenter); // Ë®Æ½ºÍ´¹Ö±¾ÓÖĞ¶ÔÆëÍ¼Æ¬
+    imgEdge->setAlignment(Qt::AlignCenter); // æ°´å¹³å’Œå‚ç›´å±…ä¸­å¯¹é½å›¾ç‰‡
 
     QLabel* imgRotate = this->findChild<QLabel*>("imgRotate");
-    QPixmap pixmapLoading3("Icon/loading3.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForLoading3 = imgRotate->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapLoading3("Icon/loading3.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForLoading3 = imgRotate->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapLoading3 = pixmapLoading3.scaled(buttonSizeForLoading3 / 2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     imgRotate->setPixmap(pixmapLoading3);
-    imgRotate->setAlignment(Qt::AlignCenter); // Ë®Æ½ºÍ´¹Ö±¾ÓÖĞ¶ÔÆëÍ¼Æ¬
+    imgRotate->setAlignment(Qt::AlignCenter); // æ°´å¹³å’Œå‚ç›´å±…ä¸­å¯¹é½å›¾ç‰‡
 
     QLabel* imgErase = this->findChild<QLabel*>("imgErase");
-    QPixmap pixmapLoading4("Icon/loading4.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForLoading4 = imgOriginal->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapLoading4("Icon/loading4.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForLoading4 = imgErase->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapLoading4 = pixmapLoading4.scaled(buttonSizeForLoading4 / 2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     imgErase->setPixmap(pixmapLoading4);
-    imgErase->setAlignment(Qt::AlignCenter); // Ë®Æ½ºÍ´¹Ö±¾ÓÖĞ¶ÔÆëÍ¼Æ¬
+    imgErase->setAlignment(Qt::AlignCenter); // æ°´å¹³å’Œå‚ç›´å±…ä¸­å¯¹é½å›¾ç‰‡
 
+
+    
 
     QTreeView* fileTreeView = this->findChild<QTreeView*>("treeView");
-    connect(fileTreeView, &QTreeView::doubleClicked, this, &NKUexperimenter::onFileDoubleClicked); // Á¬½ÓË«»÷ĞÅºÅ
+    connect(fileTreeView, &QTreeView::doubleClicked, this, &NKUexperimenter::onFileDoubleClicked); // è¿æ¥åŒå‡»ä¿¡å·
     model = new QFileSystemModel(this);
     fileTreeView->setModel(model);
-    // ÉèÖÃÏÔÊ¾µÄ¸ùÄ¿Â¼
+    // è®¾ç½®æ˜¾ç¤ºçš„æ ¹ç›®å½•
     model->setRootPath(QDir::homePath());
     fileTreeView->setRootIndex(model->index(QDir::homePath()));
+
+    this->showMaximized();
 }
 
 void NKUexperimenter::buttonUploadClicked()
 {
     filePath = QFileDialog::getOpenFileName(this,
-        tr("ÉÏ´«ÎÄ¼ş"),
+        tr(u8"ä¸Šä¼ æ–‡ä»¶"),
         "",
-        tr("Image Files (*.png *.jpg )")); // ÏŞÖÆÓÃ»§Ö»ÄÜÑ¡ÔñÍ¼Æ¬ÎÄ¼ş
-    //´´½¨Image¶ÔÏó
+        tr("Image Files (*.png *.jpg )")); // é™åˆ¶ç”¨æˆ·åªèƒ½é€‰æ‹©å›¾ç‰‡æ–‡ä»¶
+    //åˆ›å»ºImageå¯¹è±¡
     delete imgToProcess;
     try {
         imgToProcess = new ImageCV(filePath.toStdString());
@@ -143,21 +148,21 @@ void NKUexperimenter::buttonUploadClicked()
         return;
     }
     if (!filePath.isEmpty()) {
-        // Ê¹ÓÃ QPixmap ¼ÓÔØÍ¼Æ¬
+        // ä½¿ç”¨ QPixmap åŠ è½½å›¾ç‰‡
         QPixmap pixmap(filePath);
         if (!pixmap.isNull()) {
-            // ÕÒµ½ÃûÎª imgOriginal µÄ QLabel ¿Ø¼ş
+            // æ‰¾åˆ°åä¸º imgOriginal çš„ QLabel æ§ä»¶
             QLabel* imgOriginal = this->findChild<QLabel*>("imgOriginal");
             //QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
             if (imgOriginal) 
             {
-                // »ñÈ¡ QLabel µÄ³ß´ç
+                // è·å– QLabel çš„å°ºå¯¸
                 QSize labelSize = imgOriginal->size();
 
-                // ¸ù¾İ QLabel µÄ³ß´çËõ·ÅÍ¼Æ¬£¬±£³Ö¿í¸ß±È
+                // æ ¹æ® QLabel çš„å°ºå¯¸ç¼©æ”¾å›¾ç‰‡ï¼Œä¿æŒå®½é«˜æ¯”
                 QPixmap scaledPixmap = pixmap.scaled(labelSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-                // ÉèÖÃ QLabel ÏÔÊ¾Ëõ·ÅºóµÄÍ¼Æ¬
+                // è®¾ç½® QLabel æ˜¾ç¤ºç¼©æ”¾åçš„å›¾ç‰‡
                 imgOriginal->setPixmap(scaledPixmap);
                 
             }
@@ -192,18 +197,18 @@ void NKUexperimenter::buttonGenerateClicked()
 
         if (!imgEdgeQP.isNull())
         {
-            // ÕÒµ½ÃûÎª imgEdge µÄ QLabel ¿Ø¼ş
+            // æ‰¾åˆ°åä¸º imgEdge çš„ QLabel æ§ä»¶
             QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
             //QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
             if (imgEdge)
             {
-                // »ñÈ¡ QLabel µÄ³ß´ç
+                // è·å– QLabel çš„å°ºå¯¸
                 QSize labelSize = imgEdge->size();
 
-                // ¸ù¾İ QLabel µÄ³ß´çËõ·ÅÍ¼Æ¬£¬±£³Ö¿í¸ß±È
+                // æ ¹æ® QLabel çš„å°ºå¯¸ç¼©æ”¾å›¾ç‰‡ï¼Œä¿æŒå®½é«˜æ¯”
                 QPixmap scaledPixmap = imgEdgeQP.scaled(labelSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-                // ÉèÖÃ QLabel ÏÔÊ¾Ëõ·ÅºóµÄÍ¼Æ¬
+                // è®¾ç½® QLabel æ˜¾ç¤ºç¼©æ”¾åçš„å›¾ç‰‡
                 imgEdge->setPixmap(scaledPixmap);
 
             }
@@ -219,18 +224,18 @@ void NKUexperimenter::buttonGenerateClicked()
         }
         if (!imgRotateQP.isNull())
         {
-            // ÕÒµ½ÃûÎª imgEdge µÄ QLabel ¿Ø¼ş
+            // æ‰¾åˆ°åä¸º imgEdge çš„ QLabel æ§ä»¶
             QLabel* imgRotate = this->findChild<QLabel*>("imgRotate");
             //QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
             if (imgRotate)
             {
-                // »ñÈ¡ QLabel µÄ³ß´ç
+                // è·å– QLabel çš„å°ºå¯¸
                 QSize labelSize = imgRotate->size();
 
-                // ¸ù¾İ QLabel µÄ³ß´çËõ·ÅÍ¼Æ¬£¬±£³Ö¿í¸ß±È
+                // æ ¹æ® QLabel çš„å°ºå¯¸ç¼©æ”¾å›¾ç‰‡ï¼Œä¿æŒå®½é«˜æ¯”
                 QPixmap scaledPixmap = imgRotateQP.scaled(labelSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-                // ÉèÖÃ QLabel ÏÔÊ¾Ëõ·ÅºóµÄÍ¼Æ¬
+                // è®¾ç½® QLabel æ˜¾ç¤ºç¼©æ”¾åçš„å›¾ç‰‡
                 imgRotate->setPixmap(scaledPixmap);
 
             }
@@ -253,18 +258,18 @@ void NKUexperimenter::buttonRetryClicked()
     QPixmap imgRotateQP = QPixmap::fromImage(imgRotateQI);
     if (!imgRotateQP.isNull())
     {
-        // ÕÒµ½ÃûÎª imgEdge µÄ QLabel ¿Ø¼ş
+        // æ‰¾åˆ°åä¸º imgEdge çš„ QLabel æ§ä»¶
         QLabel* imgRotate = this->findChild<QLabel*>("imgRotate");
         //QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
         if (imgRotate)
         {
-            // »ñÈ¡ QLabel µÄ³ß´ç
+            // è·å– QLabel çš„å°ºå¯¸
             QSize labelSize = imgRotate->size();
 
-            // ¸ù¾İ QLabel µÄ³ß´çËõ·ÅÍ¼Æ¬£¬±£³Ö¿í¸ß±È
+            // æ ¹æ® QLabel çš„å°ºå¯¸ç¼©æ”¾å›¾ç‰‡ï¼Œä¿æŒå®½é«˜æ¯”
             QPixmap scaledPixmap = imgRotateQP.scaled(labelSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-            // ÉèÖÃ QLabel ÏÔÊ¾Ëõ·ÅºóµÄÍ¼Æ¬
+            // è®¾ç½® QLabel æ˜¾ç¤ºç¼©æ”¾åçš„å›¾ç‰‡
             imgRotate->setPixmap(scaledPixmap);
 
         }
@@ -287,18 +292,18 @@ void NKUexperimenter::buttonEraseClicked()
     QPixmap imgEraseQP = QPixmap::fromImage(imgEraseQI);
     if (!imgEraseQP.isNull())
     {
-        // ÕÒµ½ÃûÎª imgEdge µÄ QLabel ¿Ø¼ş
+        // æ‰¾åˆ°åä¸º imgEdge çš„ QLabel æ§ä»¶
         QLabel* imgErase = this->findChild<QLabel*>("imgErase");
         //QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
         if (imgErase)
         {
-            // »ñÈ¡ QLabel µÄ³ß´ç
+            // è·å– QLabel çš„å°ºå¯¸
             QSize labelSize = imgErase->size();
 
-            // ¸ù¾İ QLabel µÄ³ß´çËõ·ÅÍ¼Æ¬£¬±£³Ö¿í¸ß±È
+            // æ ¹æ® QLabel çš„å°ºå¯¸ç¼©æ”¾å›¾ç‰‡ï¼Œä¿æŒå®½é«˜æ¯”
             QPixmap scaledPixmap = imgEraseQP.scaled(labelSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-            // ÉèÖÃ QLabel ÏÔÊ¾Ëõ·ÅºóµÄÍ¼Æ¬
+            // è®¾ç½® QLabel æ˜¾ç¤ºç¼©æ”¾åçš„å›¾ç‰‡
             imgErase->setPixmap(scaledPixmap);
 
         }
@@ -321,7 +326,7 @@ void NKUexperimenter::buttonDownloadClicked()
     if (!myPixmap.isNull())
     {
         QString savePath = QFileDialog::getSaveFileName(nullptr,
-            tr("save"),
+            tr(u8"ä¿å­˜ç»“æœ"),
             QDir::homePath(),
             tr("pic (*.png *.jpg )"));
 
@@ -343,10 +348,10 @@ void NKUexperimenter::buttonDownloadClicked()
 }
 void NKUexperimenter::buttonNewClicked() 
 {
-    // ¹Ø±Õµ±Ç°´°¿Ú
-    this->close();
+    // å…³é—­å½“å‰çª—å£
+    //this->close();
 
-    // ´´½¨²¢ÏÔÊ¾ĞÂ´°¿Ú
+    // åˆ›å»ºå¹¶æ˜¾ç¤ºæ–°çª—å£
     NKUexperimenter* newWindow = new NKUexperimenter();
     newWindow->show();
 }
@@ -354,7 +359,7 @@ QImage NKUexperimenter::MatToQImage(const cv::Mat& mat)
 {
     QImage img;
     int chana = mat.channels();
-    /// ÒÀ¾İÍ¨µÀÊı²»Í¬£¬¸Ä±ä²»Í¬µÄ×°»»·½Ê½
+    /// ä¾æ®é€šé“æ•°ä¸åŒï¼Œæ”¹å˜ä¸åŒçš„è£…æ¢æ–¹å¼
     if (chana > 1) {
         //img = QImage(static_cast<uchar *>(mat.data),mat.cols,mat.rows,QImage::Format_RGB888);
         cv::cvtColor(mat, mat, COLOR_BGR2RGB);
@@ -375,7 +380,7 @@ QImage NKUexperimenter::MatToQImage(const cv::Mat& mat)
             QImage::Format_ARGB32);
     }
     else {
-        /// µ¥Í¨µÀ£¬»Ò¶ÈÍ¼
+        /// å•é€šé“ï¼Œç°åº¦å›¾
         img = QImage(mat.cols, mat.rows, QImage::Format_Indexed8);
         uchar* matdata = mat.data;
         for (int row = 0; row < mat.rows; ++row) {
@@ -398,112 +403,112 @@ QImage NKUexperimenter::MatToQImage(const cv::Mat& mat)
 }
 void NKUexperimenter::resizeEvent(QResizeEvent* event)
 {
-    QMainWindow::resizeEvent(event); // Ê¼ÖÕÊ×ÏÈµ÷ÓÃ»ùÀàµÄÊÂ¼ş´¦Àíº¯Êı
+    QMainWindow::resizeEvent(event); // å§‹ç»ˆé¦–å…ˆè°ƒç”¨åŸºç±»çš„äº‹ä»¶å¤„ç†å‡½æ•°
 
     QPushButton* buttonUpload = this->findChild<QPushButton*>("buttonUpload");
-    QPixmap pixmapUp("Icon/upload.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeforUp = buttonUpload->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapUp("Icon/upload.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeforUp = buttonUpload->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapUp = pixmapUp.scaled(buttonSizeforUp, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonUpload->setIcon(QIcon(pixmapUp));
-    buttonUpload->setIconSize(buttonSizeforUp); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonUpload->setIconSize(buttonSizeforUp); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     QPushButton* buttonGenerate = this->findChild<QPushButton*>("buttonGenerate");
-    QPixmap pixmapGe("Icon/generate.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeforGe = buttonGenerate->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapGe("Icon/generate.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeforGe = buttonGenerate->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapGe = pixmapGe.scaled(buttonSizeforGe, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonGenerate->setIcon(QIcon(pixmapGe));
-    buttonGenerate->setIconSize(buttonSizeforGe); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonGenerate->setIconSize(buttonSizeforGe); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     QPushButton* buttonRetry = this->findChild<QPushButton*>("buttonRetry");
-    QPixmap pixmapRe("Icon/retry.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForRe = buttonRetry->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapRe("Icon/retry.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForRe = buttonRetry->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapRe = pixmapRe.scaled(buttonSizeForRe, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonRetry->setIcon(QIcon(pixmapRe));
-    buttonRetry->setIconSize(buttonSizeForRe); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonRetry->setIconSize(buttonSizeForRe); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     QPushButton* buttonErase = this->findChild<QPushButton*>("buttonErase");
-    QPixmap pixmapEr("Icon/erase.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForEr = buttonErase->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapEr("Icon/erase.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForEr = buttonErase->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapEr = pixmapEr.scaled(buttonSizeForEr, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonErase->setIcon(QIcon(pixmapEr));
-    buttonErase->setIconSize(buttonSizeForEr); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonErase->setIconSize(buttonSizeForEr); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     QPushButton* buttonDownload = this->findChild<QPushButton*>("buttonDownload");
-    QPixmap pixmapDo("Icon/download.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForDo = buttonDownload->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapDo("Icon/download.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForDo = buttonDownload->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapDo = pixmapDo.scaled(buttonSizeForDo, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonDownload->setIcon(QIcon(pixmapDo));
-    buttonDownload->setIconSize(buttonSizeForDo); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonDownload->setIconSize(buttonSizeForDo); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     QPushButton* buttonNew = this->findChild<QPushButton*>("buttonNew");
-    QPixmap pixmapNe("Icon/new.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForNe = buttonNew->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapNe("Icon/new.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForNe = buttonNew->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapNe = pixmapNe.scaled(buttonSizeForNe, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     buttonNew->setIcon(QIcon(pixmapNe));
-    buttonNew->setIconSize(buttonSizeForNe); // È·±£Í¼±ê³ß´çÓë°´Å¥³ß´çÒ»ÖÂ
+    buttonNew->setIconSize(buttonSizeForNe); // ç¡®ä¿å›¾æ ‡å°ºå¯¸ä¸æŒ‰é’®å°ºå¯¸ä¸€è‡´
 
     QLabel* imgOriginal = this->findChild<QLabel*>("imgOriginal");
     if (imgOriginal)
     {
         if (!filePath.isEmpty())
         {
-            // Ê¹ÓÃ QPixmap ¼ÓÔØÍ¼Æ¬
+            // ä½¿ç”¨ QPixmap åŠ è½½å›¾ç‰‡
             QPixmap pixmap(filePath);
             // showImage("imgOriginal", pixmap);
             if (!pixmap.isNull())
             {
-                // ÕÒµ½ÃûÎª imgOriginal µÄ QLabel ¿Ø¼ş
+                // æ‰¾åˆ°åä¸º imgOriginal çš„ QLabel æ§ä»¶
                 QLabel* imgOriginal = this->findChild<QLabel*>("imgOriginal");
                 //QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
                 if (imgOriginal)
                 {
-                    // »ñÈ¡ QLabel µÄ³ß´ç
+                    // è·å– QLabel çš„å°ºå¯¸
                     QSize labelSize = imgOriginal->size();
 
-                    // ¸ù¾İ QLabel µÄ³ß´çËõ·ÅÍ¼Æ¬£¬±£³Ö¿í¸ß±È
+                    // æ ¹æ® QLabel çš„å°ºå¯¸ç¼©æ”¾å›¾ç‰‡ï¼Œä¿æŒå®½é«˜æ¯”
                     QPixmap scaledPixmap = pixmap.scaled(labelSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-                    // ÉèÖÃ QLabel ÏÔÊ¾Ëõ·ÅºóµÄÍ¼Æ¬
+                    // è®¾ç½® QLabel æ˜¾ç¤ºç¼©æ”¾åçš„å›¾ç‰‡
                     imgOriginal->setPixmap(scaledPixmap);
 
                 }
             }
         }
     }
-    QPixmap pixmapLoading1("Icon/loading.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForLoading1 = imgOriginal->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapLoading1("Icon/loading.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForLoading1 = imgOriginal->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapLoading1 = pixmapLoading1.scaled(buttonSizeForLoading1/2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     imgOriginal->setPixmap(pixmapLoading1);
 
     QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
-    QPixmap pixmapLoading2("Icon/loading2.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForLoading2 = imgEdge->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapLoading2("Icon/loading2.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForLoading2 = imgEdge->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapLoading2 = pixmapLoading2.scaled(buttonSizeForLoading2 / 2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     imgEdge->setPixmap(pixmapLoading2);
-    imgEdge->setAlignment(Qt::AlignCenter); // Ë®Æ½ºÍ´¹Ö±¾ÓÖĞ¶ÔÆëÍ¼Æ¬
+    imgEdge->setAlignment(Qt::AlignCenter); // æ°´å¹³å’Œå‚ç›´å±…ä¸­å¯¹é½å›¾ç‰‡
 
     QLabel* imgRotate = this->findChild<QLabel*>("imgRotate");
-    QPixmap pixmapLoading3("Icon/loading3.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForLoading3 = imgRotate->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapLoading3("Icon/loading3.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForLoading3 = imgRotate->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapLoading3 = pixmapLoading3.scaled(buttonSizeForLoading3 / 2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     imgRotate->setPixmap(pixmapLoading3);
-    imgRotate->setAlignment(Qt::AlignCenter); // Ë®Æ½ºÍ´¹Ö±¾ÓÖĞ¶ÔÆëÍ¼Æ¬
+    imgRotate->setAlignment(Qt::AlignCenter); // æ°´å¹³å’Œå‚ç›´å±…ä¸­å¯¹é½å›¾ç‰‡
 
     QLabel* imgErase = this->findChild<QLabel*>("imgErase");
-    QPixmap pixmapLoading4("Icon/loading4.png"); // Ô­Ê¼Í¼Æ¬Â·¾¶
-    QSize buttonSizeForLoading4 = imgOriginal->size(); // »ñÈ¡°´Å¥µÄµ±Ç°´óĞ¡
+    QPixmap pixmapLoading4("Icon/loading4.png"); // åŸå§‹å›¾ç‰‡è·¯å¾„
+    QSize buttonSizeForLoading4 = imgOriginal->size(); // è·å–æŒ‰é’®çš„å½“å‰å¤§å°
     pixmapLoading4 = pixmapLoading4.scaled(buttonSizeForLoading4 / 2, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     imgErase->setPixmap(pixmapLoading4);
-    imgErase->setAlignment(Qt::AlignCenter); // Ë®Æ½ºÍ´¹Ö±¾ÓÖĞ¶ÔÆëÍ¼Æ¬
+    imgErase->setAlignment(Qt::AlignCenter); // æ°´å¹³å’Œå‚ç›´å±…ä¸­å¯¹é½å›¾ç‰‡
 }
 void NKUexperimenter::onFileDoubleClicked(const QModelIndex& index) {
-    // ¼ì²éË«»÷µÄÎÄ¼şÊÇ·ñÊÇÍ¼Æ¬¸ñÊ½
+    // æ£€æŸ¥åŒå‡»çš„æ–‡ä»¶æ˜¯å¦æ˜¯å›¾ç‰‡æ ¼å¼
     QString filePath = model->filePath(index);
     QFileInfo fileInfo(filePath);
     if (fileInfo.suffix().compare("png", Qt::CaseInsensitive) == 0 ||
         fileInfo.suffix().compare("jpg", Qt::CaseInsensitive) == 0 )
     {
-        // TODO: ÊµÏÖÉÏ´«Âß¼­
+        // TODO: å®ç°ä¸Šä¼ é€»è¾‘
         delete imgToProcess;
         try {
             imgToProcess = new ImageCV(filePath.toStdString());
@@ -513,21 +518,21 @@ void NKUexperimenter::onFileDoubleClicked(const QModelIndex& index) {
             return;
         }
         if (!filePath.isEmpty()) {
-            // Ê¹ÓÃ QPixmap ¼ÓÔØÍ¼Æ¬
+            // ä½¿ç”¨ QPixmap åŠ è½½å›¾ç‰‡
             QPixmap pixmap(filePath);
             if (!pixmap.isNull()) {
-                // ÕÒµ½ÃûÎª imgOriginal µÄ QLabel ¿Ø¼ş
+                // æ‰¾åˆ°åä¸º imgOriginal çš„ QLabel æ§ä»¶
                 QLabel* imgOriginal = this->findChild<QLabel*>("imgOriginal");
                 //QLabel* imgEdge = this->findChild<QLabel*>("imgEdge");
                 if (imgOriginal)
                 {
-                    // »ñÈ¡ QLabel µÄ³ß´ç
+                    // è·å– QLabel çš„å°ºå¯¸
                     QSize labelSize = imgOriginal->size();
 
-                    // ¸ù¾İ QLabel µÄ³ß´çËõ·ÅÍ¼Æ¬£¬±£³Ö¿í¸ß±È
+                    // æ ¹æ® QLabel çš„å°ºå¯¸ç¼©æ”¾å›¾ç‰‡ï¼Œä¿æŒå®½é«˜æ¯”
                     QPixmap scaledPixmap = pixmap.scaled(labelSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-                    // ÉèÖÃ QLabel ÏÔÊ¾Ëõ·ÅºóµÄÍ¼Æ¬
+                    // è®¾ç½® QLabel æ˜¾ç¤ºç¼©æ”¾åçš„å›¾ç‰‡
                     imgOriginal->setPixmap(scaledPixmap);
 
                 }
@@ -546,5 +551,7 @@ void NKUexperimenter::onFileDoubleClicked(const QModelIndex& index) {
 NKUexperimenter::~NKUexperimenter()
 {
     delete imgToProcess;
-    // Ïú»Ù¶ÔÏóÊ±µÄÇåÀí¹¤×÷£¨Èç¹ûÓĞµÄ»°£©
+    delete model;
+    
+    // é”€æ¯å¯¹è±¡æ—¶çš„æ¸…ç†å·¥ä½œï¼ˆå¦‚æœæœ‰çš„è¯ï¼‰
 }
