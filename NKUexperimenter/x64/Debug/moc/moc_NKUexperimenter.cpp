@@ -46,6 +46,7 @@ constexpr auto qt_meta_stringdata_CLASSNKUexperimenterENDCLASS = QtMocHelpers::s
     "buttonNewClicked",
     "onNewFileTriggered",
     "onSaveEdgeTriggered",
+    "onSaveRotateTriggered",
     "onFileDoubleClicked",
     "QModelIndex",
     "index"
@@ -61,7 +62,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSNKUexperimenterENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -69,15 +70,16 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSNKUexperimenterENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   68,    2, 0x08,    1 /* Private */,
-       3,    0,   69,    2, 0x08,    2 /* Private */,
-       4,    0,   70,    2, 0x08,    3 /* Private */,
-       5,    0,   71,    2, 0x08,    4 /* Private */,
-       6,    0,   72,    2, 0x08,    5 /* Private */,
-       7,    0,   73,    2, 0x08,    6 /* Private */,
-       8,    0,   74,    2, 0x08,    7 /* Private */,
-       9,    0,   75,    2, 0x08,    8 /* Private */,
-      10,    1,   76,    2, 0x08,    9 /* Private */,
+       1,    0,   74,    2, 0x08,    1 /* Private */,
+       3,    0,   75,    2, 0x08,    2 /* Private */,
+       4,    0,   76,    2, 0x08,    3 /* Private */,
+       5,    0,   77,    2, 0x08,    4 /* Private */,
+       6,    0,   78,    2, 0x08,    5 /* Private */,
+       7,    0,   79,    2, 0x08,    6 /* Private */,
+       8,    0,   80,    2, 0x08,    7 /* Private */,
+       9,    0,   81,    2, 0x08,    8 /* Private */,
+      10,    0,   82,    2, 0x08,    9 /* Private */,
+      11,    1,   83,    2, 0x08,   10 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -88,7 +90,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSNKUexperimenterENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 11,   12,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 12,   13,
 
        0        // eod
 };
@@ -118,6 +121,8 @@ Q_CONSTINIT const QMetaObject NKUexperimenter::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onSaveEdgeTriggered'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onSaveRotateTriggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onFileDoubleClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QModelIndex &, std::false_type>
@@ -139,7 +144,8 @@ void NKUexperimenter::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 5: _t->buttonNewClicked(); break;
         case 6: _t->onNewFileTriggered(); break;
         case 7: _t->onSaveEdgeTriggered(); break;
-        case 8: _t->onFileDoubleClicked((*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[1]))); break;
+        case 8: _t->onSaveRotateTriggered(); break;
+        case 9: _t->onFileDoubleClicked((*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[1]))); break;
         default: ;
         }
     }
@@ -164,13 +170,13 @@ int NKUexperimenter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

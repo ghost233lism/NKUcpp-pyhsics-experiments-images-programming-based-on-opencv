@@ -390,6 +390,7 @@ public:
 	
 	QPixmap imgToSave;
 	QPixmap imgEdgeToShow;
+	QPixmap imgRotateToShow;
 private:
 	Mat img, imgHSV,imgGrey, imgAfterRotate, imgOutput;
 	

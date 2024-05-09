@@ -35,6 +35,7 @@ private slots:
    void buttonNewClicked();
    void onNewFileTriggered();
    void onSaveEdgeTriggered();
+   void onSaveRotateTriggered();
    void onFileDoubleClicked(const QModelIndex& index);
    
 private:
@@ -47,6 +48,8 @@ private:
     QPushButton* buttonUpload;
     QFileSystemModel* model;
     ImageCV* imgToProcess=nullptr;
+   
+    
    
     QImage MatToQImage(const cv::Mat& mat);
 

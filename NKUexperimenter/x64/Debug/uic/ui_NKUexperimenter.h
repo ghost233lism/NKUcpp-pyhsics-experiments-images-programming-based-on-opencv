@@ -392,7 +392,6 @@ public:
         fileMenu->addAction(newFile);
         fileMenu->addAction(saveEdge);
         fileMenu->addAction(saveRotate);
-        fileMenu->addAction(saveErase);
         setMenu->addAction(actionCuda);
         helpMenu->addAction(helpDocument);
         helpMenu->addAction(actionForMoreHelp);
@@ -426,9 +425,9 @@ public:
         showOriginal->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\345\216\237\345\247\213\345\233\276\347\211\207</p></body></html>", nullptr));
         showCanny->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\350\276\271\347\274\230\346\243\200\346\265\213</p></body></html>", nullptr));
         showErase->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\347\224\237\346\210\220\347\273\223\346\236\234</p></body></html>", nullptr));
-        fileMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\346\226\207\344\273\266(&F)", nullptr));
-        setMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\350\256\276\347\275\256(&S)", nullptr));
-        helpMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\345\270\256\345\212\251(&H)", nullptr));
+        fileMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\346\226\207\344\273\266", nullptr));
+        setMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\350\256\276\347\275\256", nullptr));
+        helpMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\345\270\256\345\212\251", nullptr));
     } // retranslateUi
 
 };
