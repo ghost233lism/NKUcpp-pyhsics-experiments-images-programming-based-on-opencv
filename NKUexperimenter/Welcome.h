@@ -7,6 +7,7 @@ class Welcome : public QWidget
 {
 	Q_OBJECT
 
+	
 public:
 	Welcome(QWidget *parent = nullptr);
 	~Welcome();

@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -18,12 +19,18 @@ QT_BEGIN_NAMESPACE
 class Ui_WelcomeClass
 {
 public:
+    QLabel *welcome;
 
     void setupUi(QWidget *WelcomeClass)
     {
         if (WelcomeClass->objectName().isEmpty())
             WelcomeClass->setObjectName("WelcomeClass");
-        WelcomeClass->resize(600, 400);
+        WelcomeClass->resize(1400, 980);
+        WelcomeClass->setMaximumSize(QSize(1400, 980));
+        welcome = new QLabel(WelcomeClass);
+        welcome->setObjectName("welcome");
+        welcome->setGeometry(QRect(0, 0, 1400, 980));
+        welcome->setMaximumSize(QSize(1400, 980));
 
         retranslateUi(WelcomeClass);
 
@@ -33,6 +40,7 @@ public:
     void retranslateUi(QWidget *WelcomeClass)
     {
         WelcomeClass->setWindowTitle(QCoreApplication::translate("WelcomeClass", "Welcome", nullptr));
+        welcome->setText(QCoreApplication::translate("WelcomeClass", "TextLabel", nullptr));
     } // retranslateUi
 
 };

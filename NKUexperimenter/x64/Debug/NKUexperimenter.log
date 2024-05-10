@@ -1,3 +1,3 @@
-﻿  NKUexperimenter.cpp
+﻿  main.cpp
 E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\imgClass.h(315,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
   NKUexperimenter.vcxproj -> E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Debug\NKUexperimenter.exe
