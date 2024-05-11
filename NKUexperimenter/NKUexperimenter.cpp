@@ -132,6 +132,12 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
     QAction* saveRotate = this->findChild<QAction*>("saveRotate");
     connect(saveRotate, &QAction::triggered, this, &NKUexperimenter::onSaveRotateTriggered);
 
+    QAction* helpDocument = this->findChild<QAction*>("helpDocument");
+    connect(helpDocument, &QAction::triggered, this, &NKUexperimenter::onHelpDocumentClicked);
+
+    QAction* actionForMoreHelp = this->findChild<QAction*>("actionForMoreHelp");
+    connect(actionForMoreHelp, &QAction::triggered, this, &NKUexperimenter::onActionForMoreHelp);
+
     QTreeView* fileTreeView = this->findChild<QTreeView*>("treeView");
     connect(fileTreeView, &QTreeView::doubleClicked, this, &NKUexperimenter::onFileDoubleClicked); // 连接双击信号
     model = new QFileSystemModel(this);
@@ -205,6 +211,21 @@ void NKUexperimenter::onSaveRotateTriggered()
     {
         QMessageBox::warning(this, tr("Warning"), tr("Pixmap null "));
     }
+}
+void NKUexperimenter::onHelpDocumentClicked()
+{
+    if (showhelpDocument == nullptr) {
+        // 如果第二个窗口尚未创建，则创建它
+        showhelpDocument = new helpDoc(this);
+    }
+
+    // 显示第二个窗口
+    showhelpDocument->show();
+}
+void NKUexperimenter::onActionForMoreHelp()
+{
+    QUrl url("https://github.com/ghost233lism/NKUcpp-pyhsics-experiments-images-programming-based-on-opencv"); 
+    QDesktopServices::openUrl(url);
 }
 void NKUexperimenter::buttonUploadClicked()
 {
@@ -688,6 +709,10 @@ NKUexperimenter::~NKUexperimenter()
 {
     delete imgToProcess;
     delete model;
+    if (showhelpDocument) {
+        showhelpDocument->close();
+        delete showhelpDocument;
+    }
     
     // 销毁对象时的清理工作（如果有的话）
 }

@@ -77,7 +77,6 @@ public:
     QToolBar *mainToolBar;
     QMenuBar *menuBar;
     QMenu *fileMenu;
-    QMenu *setMenu;
     QMenu *helpMenu;
 
     void setupUi(QMainWindow *NKUexperimenterClass)
@@ -380,19 +379,15 @@ public:
         menuBar->setGeometry(QRect(0, 0, 574, 17));
         fileMenu = new QMenu(menuBar);
         fileMenu->setObjectName("fileMenu");
-        setMenu = new QMenu(menuBar);
-        setMenu->setObjectName("setMenu");
         helpMenu = new QMenu(menuBar);
         helpMenu->setObjectName("helpMenu");
         NKUexperimenterClass->setMenuBar(menuBar);
 
         menuBar->addAction(fileMenu->menuAction());
-        menuBar->addAction(setMenu->menuAction());
         menuBar->addAction(helpMenu->menuAction());
         fileMenu->addAction(newFile);
         fileMenu->addAction(saveEdge);
         fileMenu->addAction(saveRotate);
-        setMenu->addAction(actionCuda);
         helpMenu->addAction(helpDocument);
         helpMenu->addAction(actionForMoreHelp);
 
@@ -426,7 +421,6 @@ public:
         showCanny->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\350\276\271\347\274\230\346\243\200\346\265\213</p></body></html>", nullptr));
         showErase->setText(QCoreApplication::translate("NKUexperimenterClass", "<html><head/><body><p align=\"center\">\347\224\237\346\210\220\347\273\223\346\236\234</p></body></html>", nullptr));
         fileMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\346\226\207\344\273\266", nullptr));
-        setMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\350\256\276\347\275\256", nullptr));
         helpMenu->setTitle(QCoreApplication::translate("NKUexperimenterClass", "\345\270\256\345\212\251", nullptr));
     } // retranslateUi
 

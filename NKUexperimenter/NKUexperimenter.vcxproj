@@ -64,6 +64,8 @@
     <LibraryPath>D:\opencv\build\x64\vc15\lib;C:\src\vcpkg\packages\tesseract_x64-windows\lib;C:\src\vcpkg\packages\leptonica_x64-windows\lib;C:\src\vcpkg\packages\leptonica_x64-windows\bin;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <IncludePath>D:\opencv\build\include;D:\opencv\build\include\opencv2;C:\src\vcpkg\packages\tesseract_x64-windows\include;C:\src\vcpkg\packages\tesseract_x64-windows\bin;C:\src\vcpkg\packages\leptonica_x64-windows\include;C:\src\vcpkg\packages\tesseract_x64-windows\share\tessdata;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\opencv\build\x64\vc15\lib;C:\src\vcpkg\packages\tesseract_x64-windows\lib;C:\src\vcpkg\packages\leptonica_x64-windows\lib;C:\src\vcpkg\packages\leptonica_x64-windows\bin;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
@@ -72,6 +74,11 @@
     <ClCompile>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>opencv_world450d.lib;leptonica-1.84.1.lib;tesseract53.lib;opencv_world450.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -102,8 +109,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="helpDoc.cpp" />
     <ClCompile Include="Welcome.cpp" />
     <QtRcc Include="NKUexperimenter.qrc" />
+    <QtUic Include="helpDoc.ui" />
     <QtUic Include="NKUexperimenter.ui" />
     <QtMoc Include="NKUexperimenter.h" />
     <ClCompile Include="NKUexperimenter.cpp" />
@@ -111,6 +120,7 @@
     <QtUic Include="Welcome.ui" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="helpDoc.h" />
     <ClInclude Include="imgClass.h" />
     <QtMoc Include="Welcome.h" />
   </ItemGroup>

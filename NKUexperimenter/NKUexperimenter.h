@@ -12,7 +12,9 @@
 #include <QTreeView>
 #include <QToolTip>
 #include <QKeyEvent>
+#include <QDesktopServices>
 #include "imgClass.h"
+#include "helpDoc.h"
 class NKUexperimenter : public QMainWindow
 {
     Q_OBJECT
@@ -36,6 +38,8 @@ private slots:
    void onNewFileTriggered();
    void onSaveEdgeTriggered();
    void onSaveRotateTriggered();
+   void onHelpDocumentClicked();
+   void onActionForMoreHelp();
    void onFileDoubleClicked(const QModelIndex& index);
    
 private:
@@ -48,6 +52,7 @@ private:
     QPushButton* buttonUpload;
     QFileSystemModel* model;
     ImageCV* imgToProcess=nullptr;
+    helpDoc* showhelpDocument = nullptr;
    
     
    

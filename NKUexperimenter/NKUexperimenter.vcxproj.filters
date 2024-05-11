@@ -43,6 +43,9 @@
     <ClCompile Include="Welcome.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="helpDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgClass.h">
@@ -53,9 +56,15 @@
     <QtMoc Include="Welcome.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="helpDoc.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Welcome.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="helpDoc.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
