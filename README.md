@@ -6,6 +6,12 @@
 ## 注意
 众所周知，在使用第三方库的情况下，没有配置环境是不能直接运行源代码的，如果想运行源代码的话，需要配置第三方库。另外一种简单的直接使用桌面程序的方法就是利用vs2022的release功能，配置好相应的dll文件，就可以直接使用，本人尝试realease了文件，但是目前测试还未成功，如果感兴趣，可以点击右侧的release下载测试，如果能成功运行那就太棒啦！
 如果你想build from source code，那么请你仔细阅读该文档最后的环境配置教程，本项目使用了QT、opencv库和Tesseract库，其中tesseract库的配置十分困难，国内的blog提到的方法均以失效，只能按照官方文档中的配置方法进行配置。
+
+---
+
+![demo](https://github.com/ghost233lism/NKUcpp-pyhsics-experiments-images-programming-based-on-opencv/blob/newdevelopment/demo.gif)
+
+---
 ## Motivation
 在完成物理实验报告时，往往需要加入物理实验原理图，通常有两个办法：
 
