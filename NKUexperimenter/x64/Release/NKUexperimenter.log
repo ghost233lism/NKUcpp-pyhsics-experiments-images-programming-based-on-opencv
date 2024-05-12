@@ -1,0 +1,28 @@
+﻿  Reading Qt configuration (E:/qt6/6.7.0/msvc2019_64/bin/qmake)
+  uic helpDoc.ui
+  uic NKUexperimenter.ui
+  uic Welcome.ui
+  rcc NKUexperimenter.qrc
+  moc NKUexperimenter.h
+  moc helpDoc.h
+  moc Welcome.h
+   RCC: Warning: No resources in 'E:\NKUcpp澶т綔涓氬紑鍙慭opencvprogram\NKUexperimenter\NKUexperimenter.qrc'.
+  helpDoc.cpp
+  Welcome.cpp
+  NKUexperimenter.cpp
+  main.cpp
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\imgClass.h(315,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据 (编译源文件 NKUexperimenter.cpp)
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\imgClass.h(315,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据 (编译源文件 main.cpp)
+  qrc_NKUexperimenter.cpp
+  moc_NKUexperimenter.cpp
+  moc_helpDoc.cpp
+  moc_Welcome.cpp
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\imgClass.h(315,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据 (编译源文件 x64\Release\moc\moc_NKUexperimenter.cpp)
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+  All 601 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  NKUexperimenter.vcxproj -> E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\NKUexperimenter.exe
+  Qt Deploy: "E:/qt6/6.7.0/msvc2019_64/bin\windeployqt.exe" --list target --qmldir E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\ --dir E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\ E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\NKUexperimenter.exe
+EXEC : warning : Cannot find any version of the dxcompiler.dll and dxil.dll.
+C:\Users\jin_m\AppData\Local\QtMsBuild\deploy\qtdeploy.targets(320,5): error MSB4023: 无法计算项元数据“%(Fullpath)”。无法将项元数据“%(Fullpath)”应用于路径“Adding in plugin type generic for module: Qt6Gui”。不支持给定路径的格式。

@@ -1,9 +1,10 @@
-﻿  moc NKUexperimenter.h
+﻿  Reading Qt configuration (E:/qt6/6.7.0/msvc2019_64/bin/qmake)
   NKUexperimenter.cpp
-  helpDoc.cpp
   main.cpp
 E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\imgClass.h(315,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据 (编译源文件 NKUexperimenter.cpp)
 E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\imgClass.h(315,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据 (编译源文件 main.cpp)
   moc_NKUexperimenter.cpp
-E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\imgClass.h(315,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  moc_Welcome.cpp
+  moc_helpDoc.cpp
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\imgClass.h(315,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据 (编译源文件 x64\Debug\moc\moc_NKUexperimenter.cpp)
   NKUexperimenter.vcxproj -> E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Debug\NKUexperimenter.exe

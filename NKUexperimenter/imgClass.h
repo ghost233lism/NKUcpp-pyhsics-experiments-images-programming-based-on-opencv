@@ -23,9 +23,9 @@ public:
 	Mat edge()
 	{
 		Mat se = getStructuringElement(MORPH_RECT, Size(3, 3), Point(-1, -1));
-		Mat edges, basic_grad;
-		morphologyEx(imgGrey, basic_grad, MORPH_GRADIENT, se);
-		threshold(basic_grad, edges, 0, 255, THRESH_BINARY | THRESH_OTSU);
+		Mat edges, basicGrad;
+		morphologyEx(imgGrey, basicGrad, MORPH_GRADIENT, se);
+		threshold(basicGrad, edges, 0, 255, THRESH_BINARY | THRESH_OTSU);
 		Mat kernel = getStructuringElement(MORPH_RECT, Size(30, 30));
 		dilate(edges, edges, kernel);//扩大
 		//imshow("edges", edges);

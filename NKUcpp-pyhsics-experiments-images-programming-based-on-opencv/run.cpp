@@ -2,14 +2,14 @@
 
 int main()
 {
-	Image img("Resources/Resources/ph10.jpg");
+	Image img("Resources/Resources/phy.jpg");
 	img.showImage();
 	img.rotate();
 	waitKey(1);
 	std::string order;
 	while (true)
 	{
-		std::cout << "图像是否需要重新生成？[Y]/[N]" << std::endl;
+		std::cout << "[Y]/[N]" << std::endl;
 		std::cin >> order;
 		if (order == "Y")
 		{
@@ -19,6 +19,7 @@ int main()
 		}
 		else if (order == "N")
 		{
+			img.edge();
 			img.eraseText();
 			img.showOutputImage();
 			waitKey(0);

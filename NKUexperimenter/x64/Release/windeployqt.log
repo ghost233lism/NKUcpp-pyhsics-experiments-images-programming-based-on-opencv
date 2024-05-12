@@ -1,0 +1,85 @@
+Adding in plugin type generic for module: Qt6Gui
+Adding in plugin type iconengines for module: Qt6Gui
+Adding in plugin type imageformats for module: Qt6Gui
+Adding in plugin type networkinformation for module: Qt6Network
+Adding in plugin type platforms for module: Qt6Gui
+Adding in plugin type styles for module: Qt6Widgets
+Adding in plugin type tls for module: Qt6Network
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\\Qt6Core.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\\Qt6Gui.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\\Qt6Network.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\\Qt6Svg.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\\Qt6Widgets.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\\opengl32sw.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\\D3Dcompiler_47.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\\vc_redist.x64.exe
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\generic\qtuiotouchplugin.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\iconengines\qsvgicon.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\imageformats\qgif.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\imageformats\qico.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\imageformats\qjpeg.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\imageformats\qsvg.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\networkinformation\qnetworklistmanager.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\platforms\qwindows.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\styles\qmodernwindowsstyle.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\tls\qcertonlybackend.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\tls\qopensslbackend.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\tls\qschannelbackend.dll
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_ar.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_ar.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_bg.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_bg.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_ca.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_ca.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_cs.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_cs.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_da.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_da.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_de.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_de.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_en.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_en.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_es.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_es.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_fa.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_fa.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_fi.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_fi.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_fr.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_fr.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_gd.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_gd.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_he.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_he.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_hr.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_hr.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_hu.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_hu.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_it.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_it.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_ja.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_ja.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_ko.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_ko.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_lv.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_lv.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_nl.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_nl.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_nn.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_nn.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_pl.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_pl.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_pt_BR.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_pt_BR.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_ru.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_ru.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_sk.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_sk.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_tr.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_tr.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_uk.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_uk.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_zh_CN.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_zh_CN.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qt_zh_TW.qm
+E:\NKUcpp大作业开发\opencvprogram\NKUexperimenter\x64\Release\translations\qtbase_zh_TW.qm

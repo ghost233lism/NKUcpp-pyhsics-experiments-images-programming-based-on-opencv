@@ -1,48 +1,24 @@
 ﻿  imageClass.h
 E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(78,57): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(81,57): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
           with
           [
               _Tp=float
           ]
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(78,34): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(81,34): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
           with
           [
               _Tp=float
           ]
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(152,31): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(155,31): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
           with
           [
               _Tp=float
           ]
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(193,31): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(196,31): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
           with
           [
               _Tp=float
           ]
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(312,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  run.cpp
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(78,57): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
-          with
-          [
-              _Tp=float
-          ]
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(78,34): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
-          with
-          [
-              _Tp=float
-          ]
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(152,31): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
-          with
-          [
-              _Tp=float
-          ]
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(193,31): warning C4244: “=”: 从“_Tp”转换到“int”，可能丢失数据
-          with
-          [
-              _Tp=float
-          ]
-E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(312,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  正在生成代码...
+E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\imageClass.h(316,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
   NKUcpp-pyhsics-experiments-images-programming-based-on-opencv.vcxproj -> E:\NKUcpp大作业开发\opencvprogram\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv\x64\Debug\NKUcpp-pyhsics-experiments-images-programming-based-on-opencv.exe

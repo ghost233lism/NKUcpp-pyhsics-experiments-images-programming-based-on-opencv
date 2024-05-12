@@ -35,6 +35,7 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
         // 连接按钮的 clicked 信号到槽函数
         connect(buttonGenerate, &QPushButton::clicked, this, &NKUexperimenter::buttonGenerateClicked);
     }
+    buttonGenerate->setToolTip(u8"生成");
 
     QPixmap pixmapGe("Icon/generate.png"); // 原始图片路径
     QSize buttonSizeForGe = buttonGenerate->size(); // 获取按钮的当前大小
@@ -48,6 +49,7 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
         // 连接按钮的 clicked 信号到槽函数
         connect(buttonRetry, &QPushButton::clicked, this, &NKUexperimenter::buttonRetryClicked);
     }
+    buttonRetry->setToolTip(u8"重新旋转");
 
     QPixmap pixmapRe("Icon/retry.png"); // 原始图片路径
     QSize buttonSizeForRe = buttonRetry->size(); // 获取按钮的当前大小
@@ -61,7 +63,7 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
         // 连接按钮的 clicked 信号到槽函数
         connect(buttonErase, &QPushButton::clicked, this, &NKUexperimenter::buttonEraseClicked);
     }
-
+    buttonErase->setToolTip(u8"擦除文字");
     QPixmap pixmapEr("Icon/erase.png"); // 原始图片路径
     QSize buttonSizeForEr = buttonErase->size(); // 获取按钮的当前大小
     pixmapEr = pixmapEr.scaled(buttonSizeForEr, Qt::KeepAspectRatio, Qt::SmoothTransformation);
@@ -75,7 +77,7 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
         // 连接按钮的 clicked 信号到槽函数
         connect(buttonDownload, &QPushButton::clicked, this, &NKUexperimenter::buttonDownloadClicked);
     }
-
+    buttonDownload->setToolTip(u8"下载");
     QPixmap pixmapDo("Icon/download.png"); // 原始图片路径
     QSize buttonSizeForDo = buttonDownload->size(); // 获取按钮的当前大小
     pixmapDo = pixmapDo.scaled(buttonSizeForDo, Qt::KeepAspectRatio, Qt::SmoothTransformation);
@@ -88,7 +90,7 @@ NKUexperimenter::NKUexperimenter(QWidget* parent)
         // 连接按钮的 clicked 信号到槽函数
         connect(buttonNew, &QPushButton::clicked, this, &NKUexperimenter::buttonNewClicked);
     }
-
+    buttonNew->setToolTip(u8"新建");
     QPixmap pixmapNe("Icon/new.png"); // 原始图片路径
     QSize buttonSizeForNe = buttonNew->size(); // 获取按钮的当前大小
     pixmapNe = pixmapNe.scaled(buttonSizeForNe, Qt::KeepAspectRatio, Qt::SmoothTransformation);
@@ -242,10 +244,20 @@ void NKUexperimenter::buttonUploadClicked()
         QMessageBox::warning(this, tr("Error"), tr("Failed to create Image object: ") + QString::fromStdString(e.what()));
         return;
     }
+    qDebug() << filePath;
     isUpload = true;
     if (!filePath.isEmpty()) {
         // 使用 QPixmap 加载图片
-        QPixmap pixmap(filePath);
+        //QPixmap pixmap(filePath);
+        QPixmap pixmap;
+        if (!pixmap.load(/*"C:/Users/jin_m/Desktop/10.png"*/filePath))
+        {
+            qDebug() << "load error....";
+        }
+        else {
+            qDebug() << "load ok....";
+        }
+        
         if (!pixmap.isNull()) {
             // 找到名为 imgOriginal 的 QLabel 控件
             QLabel* imgOriginal = this->findChild<QLabel*>("imgOriginal");

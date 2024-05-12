@@ -26,7 +26,8 @@ public:
 		threshold(basic_grad, edges, 0, 255, THRESH_BINARY | THRESH_OTSU);
 		Mat kernel = getStructuringElement(MORPH_RECT, Size(30, 30));
 		dilate(edges, edges, kernel);//扩大
-		//imshow("edges", edges);
+		imshow("edges", edges);
+		//imwrite("edge.png", edges);
 		return edges;//检测一个图像的边缘并且进行扩大
 	}
 	Mat copyToWhite()
@@ -45,6 +46,7 @@ public:
 		// 使用binaryEdges作为掩码，将原图中的非边缘像素设置为白色
 		bitwise_and(img, img, whiteImage, binaryEdges); // 保留边缘像素
 		// 显示结果
+		//imwrite("whiteImage.png", whiteImage);
 		return whiteImage;//把图像中边缘以外的像素全部变为白色
 	}
 	Mat clearOtherColors()
@@ -54,22 +56,23 @@ public:
 		Mat hsv;
 		cvtColor(preClearImage, hsv, COLOR_BGR2HSV);
 
-		// 定义蓝色的HSV范围
-		Scalar lower_blue(0, 0, 146);
-		Scalar upper_blue(255, 36, 255);
+	
+		Scalar lowerBound(0, 0, 146);
+		Scalar upperBound(255, 36, 255);
 
 		// 创建掩模
 		Mat mask;
-		inRange(hsv, lower_blue, upper_blue, mask);
+		inRange(hsv, lowerBound, upperBound, mask);
 
 		// 反转掩模
-		Mat mask_inv;
-		bitwise_not(mask, mask_inv);
+		Mat maskInv;
+		bitwise_not(mask, maskInv);
 		// 创建最终显示的图片
 		Mat result = preClearImage.clone(); // 复制原图到结果图
 		result.setTo(cv::Scalar(255, 255, 255), mask); // 在掩模区域设置为白色
 		// 显示和保存结果
 		//利用HSV清除因为边缘扩大带来的无用像素
+		//imwrite("result.png", result);
 		return result;
 	}
 	Point2f getMiddlePoint(Point2f pt1, Point2f pt2)
@@ -249,6 +252,7 @@ public:
 		imshow("Rotated Image", dst);
 		waitKey(1);
 		//waitKey(0);
+		imwrite("rotate.png", dst);
 		imgAfterRotate = dst;
 		return dst;
 	}
@@ -358,6 +362,7 @@ public:
 		}
 
 		imgOutput = image;
+		
 		// Clean up
 		tess.End();
 		if (ri != nullptr)
@@ -373,6 +378,11 @@ public:
 	void showImageGrey()
 	{
 		imshow("imgGrey", imgGrey);
+		
+	}
+	void showImageHSV()
+	{
+		imwrite("imgHSV.png", imgHSV);
 	}
 	Mat getImgAfterRotate()
 	{
@@ -381,6 +391,7 @@ public:
 	void showOutputImage()
 	{
 		imshow("imgOutput", imgOutput);
+		
 	}
 	Mat scaleDisplay(Mat imageIn,double scale)
 	{
