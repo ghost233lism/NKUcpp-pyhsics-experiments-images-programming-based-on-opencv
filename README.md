@@ -9,7 +9,7 @@
 
 ---
 
-![demo](https://github.com/ghost233lism/NKUcpp-pyhsics-experiments-images-programming-based-on-opencv/blob/newdevelopment/demo.gif)
+![demo](demo.gif)
 
 ---
 ## Motivation
