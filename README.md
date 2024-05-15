@@ -73,4 +73,56 @@ https://www.qt.io/cs/c/?cta_guid=074ddad0-fdef-4e53-8aa8-5e8a876d6ab4&signature=
 
 下载opensourceuser版QT tool
 
-按照提示开始安装
+按照提示开始安装桌面版QT和QT design tool
+
+正常安装后，点击maintenance QT或uninstall QT，选择add or removw components安装对应QT版本的msvc
+
+![alt text](image.png)
+
+之后，打开VS，选择扩展菜单下Qt VS Tools->Qt Versions。点击绿色加号，添加关联版本。定位到QT安装目录下的msvc文件夹
+
+![alt text](image-1.png)
+
+安装后，可测试是否正确安装。
+在 vs 中选择新建->项目，在搜索模板中搜索“Qt”，在出现的模板中选择新建“Qt Widget
+Application”
+
+![alt text](image-2.png)
+
+设置自己的项目名称，点击下一步并根据提示选择默认选项即可，至创建完成。点击运行，有窗口跳出，则安装成功。
+
+OpenCV的下载和配置
+https://opencv.org/releases/
+点击链接，下载windows版opencv源代码
+![alt text](image-3.png)
+将bin配置到系统环境变量当中。
+之后，你需要在vs中的库文件、头文件、dll中分别添加opencv的路径。
+
+#include<opencv2/opencv.hpp>
+#include<iostream>
+using namespace cv;
+
+int main(int argc, char** argv) {
+	// 加载图像到Mat对象src中
+	Mat src = imread("C:\\Users\\Administrator\\Pictures\\300x300.jpg");
+
+	// 检查图像是否成功加载，如果src.empty()返回true，则表示加载失败
+	if (src.empty()) {
+		printf("could not load image...\n");
+		// 加载失败时返回-1，终止程序运行
+		return -1;
+	}
+	// 创建一个名为"test opencv setup"的窗口，并设置其大小可以调整（WINDOW_NORMAL）
+	namedWindow("test opencv setup", WINDOW_NORMAL);
+
+	// 在名为"test opencv setup"的窗口中显示图像src
+	imshow("test opencv setup", src);
+
+	// 等待用户按键，参数为0表示无限等待
+	waitKey(0);
+	return 0;
+}
+
+运行上方代码，运行成功则为opencv配置成功
+
+vcpkg下载
