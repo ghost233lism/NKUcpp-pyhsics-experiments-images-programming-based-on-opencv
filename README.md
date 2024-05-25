@@ -125,4 +125,49 @@ int main(int argc, char** argv) {
 
 运行上方代码，运行成功则为opencv配置成功
 
-vcpkg下载
+vcpkg安装
+请参照[官方文档](https://github.com/microsoft/vcpkg/blob/master/README_zh_CN.md)下载并安装vcpkg
+配置环境变量 C:\src\vcpkg\vcpkg(定位到你的vcpkg的安装路径)
+
+安装Tesseract的c++的lib和include
+Run `vcpkg install tesseract:x64-windows` for 64-bit. Use –head for the master branch.
+添加环境变量 C:\Program Files\Tesseract-OCR（定位到你的Tesseract依赖的安装路径）
+
+下载Tesseract[程序](https://github.com/UB-Mannheim/tesseract/wiki)及语言包
+![alt text](image-4.png)
+
+配置环境变量
+D:\Tesseract\tessdata（定位到你的tessdata的文件夹）
+
+```C++
+//测试程序
+#include <iostream>
+#include <opencv2/opencv.hpp>
+#include <tesseract/baseapi.h>
+ 
+int main() {
+    // 读取图像
+    cv::Mat image = cv::imread("test.png");
+ 
+    // 初始化Tesseract OCR引擎
+    tesseract::TessBaseAPI ocr;
+    ocr.Init(NULL, "eng", tesseract::OEM_DEFAULT);//切换成你想要识别的语言
+    ocr.SetPageSegMode(tesseract::PSM_AUTO);
+ 
+    // 转换图像为灰度
+    cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
+ 
+    // 设置图像数据
+    ocr.SetImage(image.data, image.cols, image.rows, 1, image.cols);
+ 
+    // 进行OCR识别
+    std::string result = ocr.GetUTF8Text();
+ 
+    // 输出识别结果
+    std::cout << "识别结果: " << result << std::endl;
+ 
+    // 释放资源
+    ocr.End();
+ 
+    return 0;
+}
